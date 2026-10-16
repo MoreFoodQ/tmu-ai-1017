@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>可疑文字檢查器｜10/17 課程小工具</title>
+<style>
+:root{--ink:#141414;--or:#F26B1D;--red:#C8102E;--fog:#F3F4F6;--soft:#FFF1E8;--g:#666}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;color:var(--ink);font-size:18px;line-height:1.7;background:#fff}
+header{background:var(--ink);color:#fff;padding:36px 6vw 28px}
+.k{font-family:Bahnschrift,Arial,sans-serif;letter-spacing:.28em;color:var(--or);font-weight:700;font-size:13px}
+h1{margin:8px 0 4px;font-size:clamp(28px,4.5vw,40px)} header p{color:#bbb;margin:0}
+main{padding:24px 6vw 60px;max-width:1000px}
+textarea{width:100%;min-height:160px;font-size:18px;padding:14px;border:2px solid var(--ink);border-radius:14px;font-family:inherit}
+button{background:var(--or);color:#fff;border:0;border-radius:999px;padding:10px 22px;font-size:17px;font-weight:700;cursor:pointer;margin:12px 8px 0 0}
+button.ghost{background:var(--fog);color:var(--ink)}
+#out{margin-top:22px;background:var(--fog);border-radius:14px;padding:18px;white-space:pre-wrap;word-break:break-all;font-size:20px;line-height:1.9;min-height:60px}
+mark{background:var(--red);color:#fff;border-radius:4px;padding:0 2px}
+mark.inv{background:#7a00c8}
+#sum{margin-top:14px;font-size:18px;font-weight:700}
+table{border-collapse:collapse;width:100%;margin-top:10px;font-size:16px}
+td,th{border-bottom:1px solid #ddd;padding:8px;text-align:left} th{color:var(--g);font-size:14px}
+.note{background:var(--soft);border-radius:14px;padding:14px 18px;margin-top:22px;font-size:16px}
+a{color:var(--or)}
+</style>
+</head>
+<body>
+<header><div class="k">TOOL · HOMOGRAPH CHECK</div><h1>可疑文字檢查器</h1><p>貼上網址、寄件者或整封信。長得像英文、但其實是其他文字系統的字元，以及看不見的字元，都會標出來。資料只在你的瀏覽器裡處理，不會上傳。</p></header>
+<main>
+<textarea id="t" placeholder="把網址、寄件者或信件內容貼在這裡"></textarea>
+<div><button onclick="run()">檢查</button><button class="ghost" onclick="demo()">放入範例</button><button class="ghost" onclick="t.value='';run()">清除</button></div>
+<div id="sum"></div>
+<div id="out"></div>
+<table id="tb"></table>
+<div class="note">檢查器只能找出「字元」的問題。網址字元正常，也不代表一定安全。重要的付款、帳號、權限變更，請用你原本就有的電話或官方網站確認，不要用信裡提供的聯絡方式。<br><a href="index.html">← 回學員資源頁</a></div>
+</main>
+<script>
+const t=document.getElementById('t');
+function script(cp){
+ if(cp>=0x0400&&cp<=0x052F)return '西里爾字母';
+ if(cp>=0x0370&&cp<=0x03FF)return '希臘字母';
+ if((cp>=0xFF10&&cp<=0xFF19)||(cp>=0xFF21&&cp<=0xFF3A)||(cp>=0xFF41&&cp<=0xFF5A))return '全形英數字';
+ if(cp>=0x0530&&cp<=0x058F)return '亞美尼亞字母';
+ if(cp>=0x13A0&&cp<=0x13FF)return '切羅基字母';
+ if(cp>=0x1D400&&cp<=0x1D7FF)return '數學字母符號';
+ return null}
+function invisible(cp){return (cp>=0x200B&&cp<=0x200F)||(cp>=0x202A&&cp<=0x202E)||(cp>=0x2060&&cp<=0x2064)||cp===0xFEFF||cp===0x00AD||(cp>=0xE0000&&cp<=0xE007F)||(cp>=0xFE00&&cp<=0xFE0F)}
+const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function run(){
+ const s=t.value;let html='',rows=[],n=0;
+ for(const ch of s){const cp=ch.codePointAt(0);const hex='U+'+cp.toString(16).toUpperCase().padStart(4,'0');
+  if(invisible(cp)){n++;html+='<mark class="inv" title="看不見的字元 '+hex+'">⟦'+hex+'⟧</mark>';rows.push([ '（看不見）',hex,'看不見的控制或標記字元']);continue}
+  const sc=script(cp);
+  if(sc){n++;html+='<mark title="'+sc+' '+hex+'">'+esc(ch)+'</mark>';rows.push([ch,hex,sc])}else html+=esc(ch)}
+ document.getElementById('out').innerHTML=html||'<span style="color:#999">（還沒有內容）</span>';
+ document.getElementById('sum').innerHTML=s?(n?'<span style="color:#C8102E">找到 '+n+' 個可疑字元</span>':'<span style="color:#1E5A46">沒有找到長得像的特殊字元</span>'):'';
+ document.getElementById('tb').innerHTML=rows.length?'<tr><th>字元</th><th>編碼</th><th>類型</th></tr>'+rows.map(r=>'<tr><td>'+esc(r[0])+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td></tr>').join(''):'';
+}
+function demo(){t.value='寄件者：嘉順物流 帳務部 <billing@jiаshun-logistics.example>\n主旨：【重要】自 10/20 起變更收款帳戶\n\n禾光服務 您好：\n因銀行系統調整，敝公司收款帳戶將自 10/20 起變更，請於本週五前將 9 月運費匯至新帳戶。\n如有疑問請直接回覆本信，或撥打 02-0000-0000（新設專線）。\n\n嘉順物流 帳務部';run()}
+t.addEventListener('input',run);
+</script>
+</body>
+</html>

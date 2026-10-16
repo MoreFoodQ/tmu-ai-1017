@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>10/17 學員資源頁｜AI 流程自動化與低程式碼應用實務班</title>
+<style>
+:root{--ink:#141414;--or:#F26B1D;--fog:#F3F4F6;--soft:#FFF1E8;--g:#666;--line:#e3e3e3;--hg:#1E5A46}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;color:var(--ink);background:#fff;font-size:18px;line-height:1.7}
+header{background:var(--ink);color:#fff;padding:44px 6vw 36px;position:relative;overflow:hidden}
+header:after{content:"";position:absolute;right:-110px;top:-110px;width:360px;height:360px;border:40px solid var(--or);border-radius:50%}
+.k{font-family:Bahnschrift,Arial,sans-serif;letter-spacing:.28em;color:var(--or);font-weight:700;font-size:13px}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.2;margin:10px 0 8px;max-width:760px;position:relative;z-index:1}
+header p{color:#bbb;margin:0;max-width:640px;position:relative;z-index:1}
+nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);padding:10px 6vw;display:flex;gap:8px;overflow-x:auto;z-index:5}
+nav a{white-space:nowrap;text-decoration:none;color:var(--ink);background:var(--fog);padding:6px 14px;border-radius:999px;font-size:15px}
+main{padding:0 6vw 80px;max-width:1100px}
+section{scroll-margin-top:70px;padding-top:36px}
+h2{font-size:30px;margin:0 0 6px}
+h3{font-size:20px;margin:24px 0 8px}
+.sub{color:var(--g);margin:0 0 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.file{display:block;text-decoration:none;color:var(--ink);background:var(--fog);border-radius:14px;padding:14px 16px}
+.file b{display:block} .file span{color:var(--g);font-size:14px}
+.file.hl{background:var(--soft)}
+.prompt{position:relative;background:var(--ink);color:#eee;border-radius:14px;padding:18px 18px 18px;white-space:pre-wrap;font-size:16px;line-height:1.65;margin:8px 0 18px}
+.copy{position:absolute;right:10px;top:10px;background:var(--or);color:#fff;border:0;border-radius:999px;padding:6px 14px;font-size:14px;font-weight:700;cursor:pointer}
+table{border-collapse:collapse;width:100%;font-size:16px}
+th,td{border-bottom:1px solid var(--line);padding:10px 8px;text-align:left;vertical-align:top}
+th{font-size:14px;color:var(--g)}
+.note{background:var(--soft);border-radius:14px;padding:14px 18px;margin:12px 0}
+.tag{display:inline-block;background:var(--or);color:#fff;border-radius:999px;padding:1px 10px;font-size:13px;font-weight:700;margin-right:6px}
+footer{color:var(--g);font-size:14px;padding:0 6vw 40px}
+.shots{display:grid;gap:18px}.shots figure{margin:0;background:var(--fog,#F3F4F6);border-radius:14px;padding:14px;display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start}.shots img{max-width:min(100%,620px);height:auto;border:1px solid #ddd;border-radius:8px;background:#fff}.shots figcaption{width:100%;font-weight:700;font-size:15px}
+</style>
+</head>
+<body>
+<header>
+<div class="k">AI WORKFLOW × LOW-CODE · 10/17</div>
+<h1>學員資源頁</h1>
+<p>今天用到的資料、提示詞與連結都在這裡。所有公司、人物、數據皆為教學用虛構資料（禾光服務有限公司）。講師：QQ</p>
+</header>
+<nav>
+<a href="https://www.menti.com/al161coi5i5u">投票 Menti（1752 4495）</a><a href="#files">資料包</a><a href="#am">上午提示詞</a><a href="#pm">下午提示詞</a><a href="#cards">挑戰卡初稿</a><a href="#privacy">隱私設定</a><a href="#tools">小工具</a><a href="#tips">技巧</a><a href="#read">延伸閱讀</a>
+</nav>
+<main>
+
+<section id="files">
+<h2>資料包</h2>
+<p class="sub">點檔名直接下載。CSV 用 Excel 開若是亂碼，改用記事本開。</p>
+<div class="grid">
+<a class="file hl" href="files/00_禾光委託信.pdf"><b>00 禾光委託信</b><span>總經理的委託｜開場</span></a>
+<a class="file" href="files/01_禾光公司簡介.pdf"><b>01 禾光公司簡介</b><span>公司背景</span></a>
+<a class="file" href="files/01_個人加班紀錄_完全虛構_僅本機.csv"><b>01 個人加班紀錄 CSV</b><span>10:25｜只在自己電腦開，不要貼給 AI</span></a>
+<a class="file" href="files/02_群組加班彙總_完全虛構_供AI示範.csv"><b>02 群組加班彙總 CSV</b><span>10:25｜可以貼給 AI</span></a>
+<a class="file" href="files/03_CSV_學員工作單.docx"><b>03 CSV 學員工作單</b><span>10:25</span></a>
+<a class="file" href="files/張凱婷_三則原始回答.pdf"><b>張凱婷：三則原始回答</b><span>11:05｜AI 偵探</span></a>
+<a class="file" href="https://chatgpt.com/share/69048266-d5c0-800a-b0c5-a7fcbc39fabc"><b>張凱婷｜第 1 次原始對話 ↗</b><span>ChatGPT 分享連結</span></a>
+<a class="file" href="https://chatgpt.com/share/687e9820-2368-800a-a556-ce22aeac0ed7"><b>張凱婷｜第 2 次原始對話 ↗</b><span>ChatGPT 分享連結</span></a>
+<a class="file" href="https://chatgpt.com/share/687e8d0c-f6e4-800a-9a95-0d63b8f4e22a"><b>張凱婷｜第 3 次原始對話 ↗</b><span>ChatGPT 分享連結</span></a>
+<a class="file" href="files/09_九月營運週報_完全虛構.csv"><b>09 九月營運週報 CSV</b><span>11:22｜Q5</span></a>
+<a class="file" href="files/釣魚範例信_練習用.txt"><b>釣魚範例信（練習用）</b><span>11:37｜貼進檢查器</span></a>
+<a class="file hl" href="files/06_資料彙整作業規範.pdf"><b>06 資料彙整作業規範</b><span>13:10｜上傳 Gemini Notebook</span></a>
+<a class="file hl" href="files/07_例外情況與資料分享辦法.pdf"><b>07 例外情況與資料分享辦法</b><span>13:10｜上傳 Gemini Notebook</span></a>
+<a class="file hl" href="files/08_跨部門週會逐字稿.pdf"><b>08 跨部門週會逐字稿</b><span>13:10｜上傳 Gemini Notebook</span></a>
+<a class="file" href="files/挑戰卡_A-E.pdf"><b>挑戰卡 A–E</b><span>14:40｜電子版</span></a>
+</div>
+</section>
+
+<section id="am">
+<h2>上午提示詞</h2>
+<h3><span class="tag">09:45</span>Spec 卡：把「感覺」變成可驗收的需求</h3>
+<div class="prompt">① 哪個片段（時間碼）：
+② 哪個元素：
+③ 怎麼改：
+④ 要達成什麼效果：
+⑤ 怎麼驗收（別人看這張卡就能判斷）：</div>
+
+<h3><span class="tag">10:45</span>只把 02 彙總表貼給 AI</h3>
+<div class="prompt">你是管理資料摘要助理。僅根據以下完全虛構的群組加班統計，產出繁體中文、120 字以內的主管摘要。
+要求：
+1. 說明平均加班時數最高的是哪個群組及數值。
+2. 不得臆測造成差異的原因。
+3. 不得宣稱相較上月增減（沒有上月資料）。
+4. 明確提醒：彙總資料仍須依用途與公司政策確認能否分享。
+5. 請自行驗算，並明確區分資料事實與管理建議。
+
+群組,人數,加班總時數,平均加班時數_小時
+合併支援職能（法遵＋人資）,5,66,13.2
+營運,5,65,13.0
+客服,6,102,17.0</div>
+
+<h3><span class="tag">11:22</span>Q5：請 AI 找反證，不要替你下結論</h3>
+<div class="prompt">以下是一家虛構公司的 9 月營運週報。
+我們的初步判斷是：「＿＿＿＿＿＿＿＿」。
+請不要替我下結論，只要列出：
+1. 資料中支持這個判斷的證據（附欄位與數字）
+2. 至少 3 個可能推翻它的證據或替代解釋
+3. 還需要哪些資料才能判斷
+資料：（貼上 09_九月營運週報 的內容）</div>
+
+<h3><span class="tag">11:37</span>問 AI：這封信是不是釣魚？</h3>
+<div class="prompt">以下是一封我收到的信。請告訴我：
+1. 它可能是釣魚或詐騙嗎？列出可疑的地方。
+2. 寄件者網址或文字裡，有沒有看起來像、但其實不同的字元？
+3. 我應該用什麼方式查證（不要用信裡提供的聯絡方式）？
+信件內容：（貼上）</div>
+</section>
+
+<section id="pm">
+<h2>下午提示詞</h2>
+<h3><span class="tag">13:00</span>三個馬上能用的技巧</h3>
+<div class="prompt">開始之前，先問我 3 個你需要知道的問題，等我回答完再開始。</div>
+<div class="prompt">以下是另一個 AI 寫的內容。請挑出錯誤、沒有根據的說法，以及需要查證的數字，逐點列出。
+（貼上內容）</div>
+<div class="prompt">你的任務是為目前這段對話建立一份「快照」，讓我可以開新對話接著做。
+請不要逐字摘要，而是整理：主題摘要／目前進度／關鍵設定（角色、語氣、格式）／下一步。</div>
+
+<h3><span class="tag">13:25</span>Gemini Notebook：長文摘要</h3>
+<div class="prompt">請根據這三份來源，為總經理寫 5 點摘要。
+每一點都要附上引用。
+如果來源中有附則、例外條款或限制條件，請獨立列出，不要合併進一般說明。
+無法從來源確認的內容，請標示【待確認】。</div>
+
+<h3><span class="tag">13:37</span>Gemini Notebook：會議紀錄五欄</h3>
+<div class="prompt">請只根據「08 跨部門週會逐字稿」整理會議紀錄，分成五欄：
+已達成共識／意見分歧／關鍵阻礙／待驗證假設／下一步（誰、做什麼、何時）。
+規則：
+- 只有一個人提出、沒有其他人同意的意見，放在「意見分歧」，不要寫成決議。
+- 沒有指定負責人或期限的待辦，寫【未指定】，不要自行指派。</div>
+
+<h3><span class="tag">14:53</span>修稿指令範本</h3>
+<div class="prompt">你是禾光服務有限公司的文件編輯。
+讀者：＿＿＿＿　目的：＿＿＿＿　格式：＿＿＿＿
+請依下列修改清單修改初稿：
+1.（哪裡）＿＿ →（怎麼改）＿＿ →（為什麼）＿＿
+2. …
+限制：
+- 數字只能使用我提供的資料，不要自己補。
+- 不得新增任何承諾、補償或決議。
+- 資訊不足時寫【待確認】。
+輸出：修改後全文，以及一張「改了什麼、為什麼」的清單。
+初稿：（貼上）</div>
+
+<h3><span class="tag">15:13</span>濃縮成 3 頁簡報大綱</h3>
+<div class="prompt">請把我們的修改過程濃縮成 3 頁簡報大綱，給 2.5 分鐘的口頭報告使用：
+第 1 頁 我們發現的問題；第 2 頁 我們怎麼修；第 3 頁 我們學到什麼。
+每頁一個主訊息、最多 3 點，每點不超過 20 字。</div>
+</section>
+
+<section id="cards">
+<h2>挑戰卡初稿</h2>
+<p class="sub">各組只要複製自己抽到的那一張。初稿是總經理室用 AI 寫的，至少藏了 4 個問題和 1 個漏掉的東西。</p>
+<div id="cardbox"></div>
+</section>
+
+<section id="privacy">
+<h2>關掉「用我的對話訓練模型」</h2>
+<div class="note">關掉訓練，不等於完全不保留資料。最安全的做法：不該上傳的，一開始就不要上傳。</div>
+<table>
+<tr><th>平台</th><th>位置</th><th>還要知道的事</th></tr>
+<tr><td><b>ChatGPT</b></td><td>點左下角你的名字 → 設定 → 資料控制 → 關閉「協助改善所有人的模型體驗」<br><a href="https://chatgpt.com/settings/data-controls">直接開設定頁</a></td><td>按讚／倒讚的回饋，整段對話仍可能用於訓練；臨時對話最多保留 30 天。<a href="https://help.openai.com/en/articles/7730893">官方說明</a></td></tr>
+<tr><td><b>Gemini</b></td><td>左下角齒輪「設定與說明」→ 活動記錄 →「保留活動記錄」下按「開啟 ▾」→ 改成「關閉」<br><a href="https://myactivity.google.com/product/gemini">直接開活動記錄</a></td><td>即使關閉，Google 仍會將對話保留 72 小時，用來回覆你並確保安全。<a href="https://support.google.com/gemini/answer/13278892">官方說明</a></td></tr>
+<tr><td><b>Claude</b></td><td>點左下角你的名字 → 設定 → 隱私權 → 關閉「Help improve our AI models」<br><a href="https://claude.ai/settings/data-privacy-controls">直接開設定頁</a></td><td>被安全機制標記的對話，仍可能被保留與審查。<a href="https://privacy.claude.com/en/articles/12109829">官方說明</a></td></tr>
+</table>
+<p class="sub" style="margin-top:22px">實際畫面（2026/10 截圖，橘框是要點的地方；介面可能更新）</p>
+<div class="shots">
+<figure><img src="files/shots/m_gpt.png" alt="ChatGPT 資料控制畫面"><figcaption>ChatGPT｜資料控制</figcaption></figure>
+<figure><img src="files/shots/m_gem_menu.png" alt="Gemini 設定與說明選單" style="max-width:180px"><img src="files/shots/m_gem_act.png" alt="Gemini 活動記錄畫面"><figcaption>Gemini｜設定與說明 → 活動記錄</figcaption></figure>
+<figure><img src="files/shots/m_claude.png" alt="Claude 隱私權畫面"><figcaption>Claude｜隱私權</figcaption></figure>
+</div>
+</section>
+
+<section id="tools">
+<h2>小工具</h2>
+<div class="grid">
+<a class="file hl" href="checker.html"><b>可疑文字檢查器</b><span>貼上網址或信件，標出長得像但不同的字元</span></a>
+</div>
+</section>
+
+<section id="tips">
+<h2>八個實用技巧</h2>
+<table>
+<tr><td><b>先讓 AI 問你問題</b></td><td>需求還沒想清楚時，請它先問 3 個問題</td></tr>
+<tr><td><b>換一個 AI 審稿</b></td><td>把答案貼給另一家的 AI，請它挑錯</td></tr>
+<tr><td><b>對話存檔</b></td><td>對話太長時，整理進度後開新對話接著做</td></tr>
+<tr><td><b>用講的</b></td><td>手機語音輸入，口述之後再請 AI 整理</td></tr>
+<tr><td><b>截圖給 AI 看</b></td><td>表格、錯誤訊息、紙本照片都可以</td></tr>
+<tr><td><b>要可以貼進 Excel 的表格</b></td><td>「用表格輸出，欄位是……」</td></tr>
+<tr><td><b>請它當反對者</b></td><td>「你是最挑剔的主管，挑出這份報告的問題」</td></tr>
+<tr><td><b>臨時對話</b></td><td>不想留紀錄、不想進記憶時使用</td></tr>
+</table>
+</section>
+
+<section id="read">
+<h2>延伸閱讀</h2>
+<table>
+<tr><td>Kalai 等人（2025）Why Language Models Hallucinate</td><td><a href="https://openai.com/index/why-language-models-hallucinate/">連結</a></td></tr>
+<tr><td>Liu、Zhang、Liang（2023）生成式搜尋引擎的引用可驗證性</td><td><a href="https://aclanthology.org/2023.findings-emnlp.467/">連結</a></td></tr>
+<tr><td>NIST SP 1270：AI 偏見</td><td><a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1270.pdf">連結</a></td></tr>
+<tr><td>OWASP LLM01：提示詞注入</td><td><a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">連結</a></td></tr>
+<tr><td>Unicode UTS #39：形似字元</td><td><a href="https://www.unicode.org/reports/tr39/">連結</a></td></tr>
+<tr><td>Agent Skills 規格</td><td><a href="https://agentskills.io">連結</a></td></tr>
+<tr><td>OpenAI 提示詞建議</td><td><a href="https://help.openai.com/en/articles/6654000">連結</a></td></tr>
+<tr><td>Anthropic 提示詞建議</td><td><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices">連結</a></td></tr>
+</table>
+</section>
+</main>
+<footer>臺北醫學大學進修推廣處｜AI 流程自動化與低程式碼應用實務班｜2026/10/17｜講師 QQ</footer>
+<script src="cards.js"></script>
+<script>
+document.querySelectorAll('.prompt').forEach(p=>{const b=document.createElement('button');b.className='copy';b.textContent='複製';
+b.onclick=()=>{const t=p.childNodes[0].textContent;navigator.clipboard.writeText(t).then(()=>{b.textContent='已複製';setTimeout(()=>b.textContent='複製',1500)}).catch(()=>{const r=document.createRange();r.selectNodeContents(p);getSelection().removeAllRanges();getSelection().addRange(r)})};p.appendChild(b)});
+const box=document.getElementById('cardbox');(window.CARDS||[]).forEach(c=>{const h=document.createElement('h3');h.innerHTML='<span class="tag">'+c.key+'</span>'+c.title+'｜'+c.sub;
+const d=document.createElement('div');d.className='prompt';d.textContent=c.draft;box.appendChild(h);box.appendChild(d);
+const b=document.createElement('button');b.className='copy';b.textContent='複製';b.onclick=()=>{navigator.clipboard.writeText(c.draft).then(()=>{b.textContent='已複製';setTimeout(()=>b.textContent='複製',1500)})};d.appendChild(b)});
+</script>
+</body>
+</html>
