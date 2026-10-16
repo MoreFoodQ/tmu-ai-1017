@@ -2,83 +2,402 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>10/17 學員資源頁｜AI 流程自動化與低程式碼應用實務班</title>
+<meta name="description" content="10/17 課程的資料包、提示詞、小工具，依今天的時間順序排好。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#141414;--or:#F26B1D;--fog:#F3F4F6;--soft:#FFF1E8;--g:#666;--line:#e3e3e3;--hg:#1E5A46}
+:root{
+  --ink:#141414;--ink2:#2A2A2A;--paper:#FAFAF7;--card:#FFFFFF;--fog:#F1F1EE;--line:#E4E3DE;
+  --or:#F26B1D;--or-soft:#FFF1E8;--or-deep:#C24F0C;--g:#66655F;--ok:#1E7A4F;--ok-soft:#E7F4EC;--bad:#C8102E;--bad-soft:#FBE9EC;
+  --r:18px;--sans:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;--num:"Space Grotesk",Bahnschrift,"Segoe UI",sans-serif;
+  --rail:248px;
+}
 *{box-sizing:border-box}
-body{margin:0;font-family:"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;color:var(--ink);background:#fff;font-size:18px;line-height:1.7}
-header{background:var(--ink);color:#fff;padding:44px 6vw 36px;position:relative;overflow:hidden}
-header:after{content:"";position:absolute;right:-110px;top:-110px;width:360px;height:360px;border:40px solid var(--or);border-radius:50%}
-.k{font-family:Bahnschrift,Arial,sans-serif;letter-spacing:.28em;color:var(--or);font-weight:700;font-size:13px}
-h1{font-size:clamp(30px,5vw,46px);line-height:1.2;margin:10px 0 8px;max-width:760px;position:relative;z-index:1}
-header p{color:#bbb;margin:0;max-width:640px;position:relative;z-index:1}
-nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);padding:10px 6vw;display:flex;gap:8px;overflow-x:auto;z-index:5}
-nav a{white-space:nowrap;text-decoration:none;color:var(--ink);background:var(--fog);padding:6px 14px;border-radius:999px;font-size:15px}
-main{padding:0 6vw 80px;max-width:1100px}
-section{scroll-margin-top:70px;padding-top:36px}
-h2{font-size:30px;margin:0 0 6px}
-h3{font-size:20px;margin:24px 0 8px}
-.sub{color:var(--g);margin:0 0 16px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
-.file{display:block;text-decoration:none;color:var(--ink);background:var(--fog);border-radius:14px;padding:14px 16px}
-.file b{display:block} .file span{color:var(--g);font-size:14px}
-.file.hl{background:var(--soft)}
-.prompt{position:relative;background:var(--ink);color:#eee;border-radius:14px;padding:18px 18px 18px;white-space:pre-wrap;font-size:16px;line-height:1.65;margin:8px 0 18px}
-.copy{position:absolute;right:10px;top:10px;background:var(--or);color:#fff;border:0;border-radius:999px;padding:6px 14px;font-size:14px;font-weight:700;cursor:pointer}
-table{border-collapse:collapse;width:100%;font-size:16px}
-th,td{border-bottom:1px solid var(--line);padding:10px 8px;text-align:left;vertical-align:top}
-th{font-size:14px;color:var(--g)}
-.note{background:var(--soft);border-radius:14px;padding:14px 18px;margin:12px 0}
-.tag{display:inline-block;background:var(--or);color:#fff;border-radius:999px;padding:1px 10px;font-size:13px;font-weight:700;margin-right:6px}
-footer{color:var(--g);font-size:14px;padding:0 6vw 40px}
-.shots{display:grid;gap:18px}.shots figure{margin:0;background:var(--fog,#F3F4F6);border-radius:14px;padding:14px;display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start}.shots img{max-width:min(100%,620px);height:auto;border:1px solid #ddd;border-radius:8px;background:#fff}.shots figcaption{width:100%;font-weight:700;font-size:15px}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.7}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--or);outline-offset:2px;border-radius:6px}
+
+/* ---------- hero ---------- */
+.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:44px 20px 34px}
+.hero .wrap{max-width:1180px;margin:0 auto;position:relative;z-index:1}
+.hero:before{content:"";position:absolute;right:-140px;top:-160px;width:460px;height:460px;border:56px solid var(--or);border-radius:50%;opacity:.95}
+.kick{font-family:var(--num);font-weight:700;letter-spacing:.26em;font-size:12px;color:var(--or);text-transform:uppercase}
+.hero h1{font-size:clamp(32px,6vw,56px);line-height:1.12;margin:12px 0 10px;font-weight:900;letter-spacing:-.01em}
+.hero p{color:#BDBDB6;margin:0;max-width:620px;font-size:16px}
+.quick{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.qbtn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:#fff;color:var(--ink);border-radius:999px;padding:10px 18px 10px 12px;font-weight:700;font-size:15px;border:0}
+.qbtn .ic{width:28px;height:28px;border-radius:50%;background:var(--or);color:#fff;display:grid;place-items:center;font-size:14px;font-family:var(--num)}
+.qbtn.ghost{background:var(--ink2);color:#fff}
+.qbtn.ghost .ic{background:#3a3a3a}
+.qbtn small{font-family:var(--num);color:var(--or-deep);font-size:14px;letter-spacing:.06em}
+
+/* now banner */
+.now{margin-top:26px;background:var(--ink2);border-radius:16px;padding:14px 16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.now .dot{width:10px;height:10px;border-radius:50%;background:var(--or);box-shadow:0 0 0 0 rgba(242,107,29,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(242,107,29,0)}100%{box-shadow:0 0 0 0 rgba(242,107,29,0)}}
+.now b{font-size:16px}.now span{color:#BDBDB6;font-size:14px}
+.now a{margin-left:auto;color:#fff;background:var(--or);text-decoration:none;border-radius:999px;padding:6px 14px;font-size:14px;font-weight:700}
+.daybar{margin-top:14px;height:6px;border-radius:6px;background:#333;position:relative;overflow:hidden}
+.daybar i{position:absolute;inset:0 auto 0 0;background:var(--or);border-radius:6px;width:0;transition:width .6s}
+
+/* ---------- layout ---------- */
+.layout{max-width:1180px;margin:0 auto;padding:0 20px 120px;display:grid;grid-template-columns:var(--rail) minmax(0,1fr);gap:40px}
+.rail{position:sticky;top:0;align-self:start;padding-top:34px;max-height:100vh;overflow:auto}
+.rail ol{list-style:none;margin:0;padding:0;position:relative}
+.rail ol:before{content:"";position:absolute;left:17px;top:18px;bottom:18px;width:2px;background:var(--line)}
+.rail li a{display:grid;grid-template-columns:36px 1fr;gap:10px;align-items:center;text-decoration:none;padding:9px 0;position:relative}
+.rail .n{width:36px;height:36px;border-radius:50%;background:var(--card);border:2px solid var(--line);display:grid;place-items:center;font-family:var(--num);font-weight:700;font-size:15px;z-index:1;transition:.2s}
+.rail .t{font-weight:700;font-size:15px;line-height:1.3}
+.rail .t small{display:block;font-family:var(--num);font-weight:500;color:var(--g);font-size:12.5px;letter-spacing:.04em}
+.rail li.on .n{background:var(--ink);color:#fff;border-color:var(--ink)}
+.rail li.live .n{background:var(--or);border-color:var(--or);color:#fff}
+.rail li.done .n{background:var(--fog);color:var(--g)}
+.rail .side{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);display:grid;gap:6px}
+.rail .side a{font-size:14px;color:var(--g);text-decoration:none;padding:4px 0}
+.rail .side a:hover{color:var(--ink)}
+
+/* mobile chip bar */
+.chips{display:none}
+
+/* ---------- blocks ---------- */
+.block{padding-top:44px;scroll-margin-top:12px}
+.bh{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:end;margin-bottom:18px}
+.bn{font-family:var(--num);font-weight:700;font-size:64px;line-height:.85;color:var(--or)}
+.bh h2{font-size:clamp(24px,3.4vw,32px);margin:0;line-height:1.25;font-weight:900}
+.bh .meta{font-family:var(--num);color:var(--g);font-size:14px;letter-spacing:.05em}
+.bh .goal{grid-column:1/-1;margin:2px 0 0;color:var(--g);font-size:15.5px}
+.livebadge{display:none;margin-left:8px;vertical-align:middle;background:var(--or);color:#fff;font-family:var(--num);font-size:11px;letter-spacing:.14em;padding:2px 9px;border-radius:999px}
+.block.live .livebadge{display:inline-block}
+.brk{margin:30px 0 0;padding:14px 18px;border:1.5px dashed var(--line);border-radius:var(--r);color:var(--g);font-size:15px;display:flex;gap:10px;align-items:center}
+.brk b{color:var(--ink)}
+
+.items{display:grid;gap:14px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;position:relative;transition:border-color .2s, box-shadow .2s}
+.item.live{border-color:var(--or);box-shadow:0 0 0 3px var(--or-soft)}
+.item.live:after{content:"NOW";position:absolute;top:-10px;right:16px;background:var(--or);color:#fff;font-family:var(--num);font-size:11px;letter-spacing:.16em;padding:2px 9px;border-radius:999px}
+.ih{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+.time{font-family:var(--num);font-weight:700;font-size:14px;background:var(--ink);color:#fff;border-radius:8px;padding:2px 8px}
+.chip{font-size:12.5px;font-weight:700;border-radius:999px;padding:2px 10px;background:var(--fog);color:var(--g)}
+.chip.p{background:var(--or-soft);color:var(--or-deep)}
+.chip.tool{background:#ECEFFB;color:#3346A8}
+.chip.do{background:var(--ok-soft);color:var(--ok)}
+.item h3{flex-basis:100%;margin:6px 0 0;font-size:19px;line-height:1.4;font-weight:700}
+.item .hint{margin:6px 0 0;color:var(--g);font-size:15px}
+
+/* files */
+.files{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-top:12px}
+.file{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:center;text-decoration:none;background:var(--fog);border-radius:14px;padding:10px 12px;border:1px solid transparent;transition:.15s}
+.file:hover{border-color:var(--ink);background:#fff}
+.ext{width:44px;height:52px;border-radius:8px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--num);font-weight:700;font-size:11px;color:var(--g);position:relative}
+.ext.pdf{color:var(--bad)}.ext.csv{color:var(--ok)}.ext.doc{color:#2B579A}.ext.lnk{color:var(--or-deep)}
+.file b{display:block;font-size:15px;line-height:1.35}
+.file>span:last-child>span{display:block;font-size:13px;color:var(--g);line-height:1.4}
+.file>span:last-child>span.flag{display:inline-block}
+.flag{display:inline-block;font-size:11.5px;font-weight:700;border-radius:6px;padding:0 6px;margin-top:3px}
+.flag.no{background:var(--bad-soft);color:var(--bad)}.flag.yes{background:var(--ok-soft);color:var(--ok)}
+
+/* prompt box */
+.pbox{position:relative;margin-top:12px;background:var(--ink);color:#EDEDE8;border-radius:14px;overflow:hidden}
+.pbox pre{margin:0;padding:16px 18px 18px;white-space:pre-wrap;word-break:break-word;font-family:var(--sans);font-size:15.5px;line-height:1.7;max-height:10.5em;overflow:hidden;transition:max-height .35s}
+.pbox.open pre,.pbox.short pre{max-height:none}
+.pbox:not(.open):not(.short):after{content:"";position:absolute;left:0;right:0;bottom:44px;height:56px;background:linear-gradient(transparent,var(--ink));pointer-events:none}
+.pbar{display:flex;gap:8px;justify-content:flex-end;padding:8px 10px;background:#1E1E1E}
+.btn{border:0;border-radius:999px;padding:6px 14px;font-size:14px;font-weight:700;background:#333;color:#fff}
+.btn.or{background:var(--or)}
+.btn.lt{background:var(--fog);color:var(--ink)}
+.btn.ok{background:var(--ok)}
+.pbox.short .more{display:none}
+
+/* builder */
+.builder{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fields{display:grid;gap:10px}
+.fields label{display:grid;gap:4px;font-size:14px;font-weight:700}
+.fields label em{font-style:normal;font-weight:400;color:var(--g);font-size:12.5px}
+.fields input,.fields textarea{width:100%;font:inherit;font-size:15.5px;border:1.5px solid var(--line);border-radius:10px;padding:9px 11px;background:#fff;resize:vertical}
+.fields input:focus,.fields textarea:focus{border-color:var(--ink);outline:none}
+.fields .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.preview{display:flex;flex-direction:column}
+.preview .pbox{margin-top:0;flex:1;display:flex;flex-direction:column}
+.preview .pbox pre{flex:1;max-height:none}
+.meter{display:flex;gap:4px;margin:0 0 8px}
+.meter i{flex:1;height:6px;border-radius:4px;background:var(--line);transition:.2s}
+.meter i.on{background:var(--ok)}
+.coach{font-size:14px;color:var(--g);margin:0 0 8px;min-height:1.6em}
+.coach.warn{color:var(--bad)}
+.coach.good{color:var(--ok)}
+
+/* privacy */
+.plat{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.pl{background:var(--fog);border-radius:14px;padding:14px 14px 12px;display:flex;flex-direction:column;gap:8px}
+.pl h4{margin:0;font-size:17px}
+.pl ol{margin:0;padding-left:20px;font-size:14.5px;line-height:1.6}
+.pl .k2{font-size:13px;color:var(--g);border-top:1px solid var(--line);padding-top:8px;margin-top:auto}
+.pl .acts{display:flex;gap:6px;flex-wrap:wrap}
+.pl .acts a,.pl .acts button{font-size:13px;font-weight:700;text-decoration:none;border-radius:999px;padding:4px 11px;border:1.5px solid var(--ink);background:#fff;color:var(--ink)}
+.pl.done{background:var(--ok-soft)}
+.pl.done .tick{background:var(--ok);color:#fff;border-color:var(--ok)}
+.prog{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:14px;color:var(--g)}
+.prog .bar{flex:1;height:8px;border-radius:8px;background:var(--fog);overflow:hidden}
+.prog .bar i{display:block;height:100%;width:0;background:var(--ok);transition:width .3s}
+dialog{border:0;border-radius:16px;padding:0;max-width:min(940px,94vw);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(20,20,20,.7)}
+dialog .dh{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);font-weight:700}
+dialog .db{padding:16px;display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;max-height:78vh;overflow:auto;background:var(--fog)}
+dialog img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);background:#fff}
+
+/* game */
+.game{margin-top:12px;background:var(--fog);border-radius:14px;padding:16px}
+.gq{font-size:15px;color:var(--g);margin:0 0 10px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{background:#fff;border:2px solid var(--line);border-radius:12px;padding:16px 10px;font-family:Arial,"Segoe UI",sans-serif;font-size:clamp(17px,2.6vw,24px);text-align:center;transition:.15s;word-break:break-all}
+.opt:hover{border-color:var(--ink)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.gfb{margin-top:10px;font-size:14.5px;min-height:1.7em}
+.gfb code{font-family:var(--num);background:#fff;border-radius:5px;padding:0 5px}
+.gfoot{display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:14px;color:var(--g)}
+
+/* challenge */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.tab{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:8px 12px;text-align:left;line-height:1.3}
+.tab b{font-family:var(--num);color:var(--or);margin-right:6px}
+.tab[aria-selected=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.roles{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}
+.role{background:var(--fog);border-radius:12px;padding:10px 12px;font-size:13.5px;line-height:1.5}
+.role b{display:block;font-size:15px;margin-bottom:2px}
+.role i{font-style:normal;font-family:var(--num);color:var(--or);font-weight:700;margin-right:4px}
+.check{display:grid;gap:8px;margin-top:12px}
+.check label{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;background:var(--fog);border-radius:12px;padding:10px 12px;cursor:pointer;font-size:15.5px}
+.check input{width:22px;height:22px;accent-color:var(--ok);margin:2px 0 0}
+.check label:has(input:checked){background:var(--ok-soft)}
+.stampwrap{display:flex;align-items:center;gap:16px;margin-top:12px;min-height:110px}
+.stamp{width:104px;height:104px;border:4px solid var(--bad);border-radius:50%;color:var(--bad);display:grid;place-items:center;text-align:center;font-weight:900;font-size:20px;line-height:1.15;transform:rotate(-12deg) scale(1.8);opacity:0;transition:transform .35s cubic-bezier(.2,1.6,.4,1),opacity .2s}
+.stamp small{display:block;font-size:11px;font-weight:700;letter-spacing:.1em}
+.stamp.show{transform:rotate(-12deg) scale(1);opacity:1}
+.stampwrap p{margin:0;color:var(--g);font-size:14.5px}
+
+/* tips + reading */
+.tips{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.tip{background:var(--fog);border-radius:14px;padding:12px 14px;font-size:14px;line-height:1.55}
+.tip b{display:block;font-size:15.5px;margin-bottom:2px}
+.tip i{font-style:normal;font-family:var(--num);color:var(--or);font-weight:700;font-size:13px}
+.reads{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:2px}
+.reads a{display:flex;justify-content:space-between;gap:12px;text-decoration:none;padding:10px 4px;border-bottom:1px solid var(--line);font-size:15px}
+.reads a span{color:var(--or-deep);white-space:nowrap;font-weight:700}
+
+footer{max-width:1180px;margin:0 auto;padding:0 20px 40px;color:var(--g);font-size:13.5px}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;border-radius:999px;padding:8px 18px;font-size:14px;opacity:0;pointer-events:none;transition:.25s;z-index:50}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.dock{display:none}
+
+
+/* v2 additions */
+.anchors{display:flex;gap:6px;flex-wrap:wrap;margin:2px 0 4px}
+.anchors button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:3px 12px;font-size:13px;font-weight:700}
+.anchors button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.frow{display:flex;gap:8px}
+.variants{margin-top:10px;background:var(--fog);border-radius:12px;padding:10px 14px;font-size:14.5px}
+.variants summary{cursor:pointer;font-weight:700}
+.var{margin-top:8px;line-height:1.6}.var b{display:inline-block;background:#fff;border-radius:6px;padding:0 8px;margin-right:6px;font-size:13px}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+.tcase{background:var(--fog);border-radius:14px;padding:14px;display:flex;flex-direction:column}
+.tcase>b{font-size:17px}.tn{font-family:var(--num);color:var(--or);font-weight:700;font-size:13px}
+.scene{font-size:14.5px;color:var(--ink2);margin:6px 0 10px}
+.scene span{display:inline-block;font-size:12px;font-weight:700;background:#fff;border-radius:6px;padding:0 7px;margin-right:6px;color:var(--g)}
+.tcase .pbox pre{font-size:14.5px}
+.steps{margin:10px 0 0;padding-left:22px;display:grid;gap:4px;font-size:15.5px}
+.flowmap{margin-top:12px;background:var(--fog);border-radius:14px;padding:14px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.flowmap>span{background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:6px 12px;font-weight:700;font-size:15px;text-align:center;line-height:1.25}
+.flowmap>span.ai{border-color:var(--or);background:var(--or-soft)}
+.flowmap small{display:block;font-size:11.5px;color:var(--or-deep);font-weight:700}
+.flowmap i{font-style:normal;color:var(--g)}
+.gates{flex-basis:100%;display:flex;gap:8px;flex-wrap:wrap}
+.gate{font-size:13.5px;font-weight:700;color:var(--bad);background:var(--bad-soft);border-radius:999px;padding:3px 12px}
+.item.xq{background:var(--ink);color:#fff;border-color:var(--ink)}
+.item.xq .hint{color:#BDBDB6}
+.xq .chip{background:var(--or);color:#fff}
+.xq .xopts{display:grid;gap:8px;margin-top:12px}
+.xq .xo{text-align:left;background:#262626;color:#fff;border:1.5px solid #3a3a3a;border-radius:12px;padding:10px 14px;font-size:15.5px}
+.xq .xo:hover{border-color:#777}
+.xq .xo.right{border-color:#3CB878;background:#163826}
+.xq .xo.wrong{border-color:#E0566B;background:#3a1820}
+.xq .xans{display:none;margin-top:12px;background:#262626;border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.7}
+.xq.done .xans{display:block}
+.xq .xans a{color:var(--or)}
+@media (max-width:1000px){.trio{grid-template-columns:1fr}}
+/* ---------- responsive ---------- */
+@media (max-width:1000px){
+  .builder{grid-template-columns:1fr}
+  .roles{grid-template-columns:repeat(2,1fr)}
+  .tips{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:860px){
+  .layout{grid-template-columns:1fr;gap:0;padding:0 16px 120px}
+  .rail{display:none}
+  .chips{display:flex;position:sticky;top:0;z-index:20;gap:6px;overflow-x:auto;padding:10px 16px;background:rgba(250,250,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chips a{flex:none;text-decoration:none;font-size:14px;font-weight:700;border-radius:999px;padding:5px 12px;background:var(--card);border:1.5px solid var(--line)}
+  .chips a.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .chips a.live{background:var(--or);border-color:var(--or);color:#fff}
+  .block{scroll-margin-top:56px}
+  .plat{grid-template-columns:1fr}
+  .hero{padding:34px 16px 26px}
+  .hero:before{width:260px;height:260px;border-width:34px;right:-120px;top:-110px}
+  .quick .qbtn{font-size:14px}
+  .bn{font-size:52px}
+  .item{padding:16px}
+  .dock{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:30;background:var(--ink);border-radius:18px;padding:6px;gap:4px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+  .dock a{flex:1;text-align:center;text-decoration:none;color:#fff;font-size:12.5px;font-weight:700;padding:7px 4px;border-radius:12px;line-height:1.3}
+  .dock a b{display:block;font-family:var(--num);font-size:13.5px;white-space:nowrap}
+  .dock a.hot{background:var(--or)}
+}
+@media (max-width:520px){
+  .opts{grid-template-columns:1fr}
+  .roles,.tips{grid-template-columns:1fr}
+  .fields .row3{grid-template-columns:1fr}
+  .now a{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+@media print{.rail,.chips,.dock,.hero:before,.hero:after,.pbar{display:none}.pbox pre{max-height:none}}
 </style>
 </head>
 <body>
-<header>
-<div class="k">AI WORKFLOW × LOW-CODE · 10/17</div>
-<h1>學員資源頁</h1>
-<p>今天用到的資料、提示詞與連結都在這裡。所有公司、人物、數據皆為教學用虛構資料（禾光服務有限公司）。講師：QQ</p>
+
+<header class="hero">
+<div class="wrap">
+  <div class="kick">AI Workflow × Low-code · 2026.10.17</div>
+  <h1>今日課程資源</h1>
+  <p>依課程時序整理每一段需要的資料、提示詞與練習工具。上課期間，頁首會標示目前進行的段落。<br>本頁所有公司、人物與數據，皆為教學用虛構資料（禾光服務有限公司）。</p>
+  <div class="quick">
+    <a class="qbtn" href="https://www.menti.com/al161coi5i5u" target="_blank" rel="noopener"><span class="ic">✓</span>加入投票 <small>1752 4495</small></a>
+    <a class="qbtn ghost" href="#privacy"><span class="ic">⚙</span>關掉 AI 訓練設定</a>
+    <a class="qbtn ghost" href="checker.html" target="_blank" rel="noopener"><span class="ic">?</span>可疑文字檢查器</a>
+  </div>
+  <div class="now" id="now" hidden>
+    <span class="dot"></span>
+    <div><b id="nowTitle"></b><br><span id="nowSub"></span></div>
+    <a id="nowGo" href="#">跳到這裡 ↓</a>
+  </div>
+  <div class="daybar" aria-hidden="true"><i id="dayFill"></i></div>
+</div>
 </header>
-<nav>
-<a href="https://www.menti.com/al161coi5i5u">投票 Menti（1752 4495）</a><a href="#files">資料包</a><a href="#am">上午提示詞</a><a href="#pm">下午提示詞</a><a href="#cards">挑戰卡初稿</a><a href="#privacy">隱私設定</a><a href="#tools">小工具</a><a href="#tips">技巧</a><a href="#read">延伸閱讀</a>
+
+<nav class="chips" id="chips" aria-label="今天的段落">
+  <a href="#b1">① 認識 AI</a><a href="#b2">② 保護與查證</a><a href="#b3">③ 讀文件</a><a href="#b4">④ 流程</a><a href="#b5">⑤ 交付</a><a href="#b6">⑥ 帶走</a>
 </nav>
+
+<div class="layout">
+<aside class="rail" aria-label="今天的段落">
+  <ol id="rail">
+    <li data-b="b1"><a href="#b1"><span class="n">1</span><span class="t">認識 AI<small>09:00–10:15</small></span></a></li>
+    <li data-b="b2"><a href="#b2"><span class="n">2</span><span class="t">保護與查證<small>10:25–12:00</small></span></a></li>
+    <li data-b="b3"><a href="#b3"><span class="n">3</span><span class="t">讀文件<small>13:00–14:05</small></span></a></li>
+    <li data-b="b4"><a href="#b4"><span class="n">4</span><span class="t">流程與 Agent<small>14:05–14:30</small></span></a></li>
+    <li data-b="b5"><a href="#b5"><span class="n">5</span><span class="t">交付：修到能簽名<small>14:40–15:37</small></span></a></li>
+    <li data-b="b6"><a href="#b6"><span class="n">6</span><span class="t">帶走<small>15:37–16:00</small></span></a></li>
+  </ol>
+  <div class="side">
+    <a href="#privacy">⚙ 隱私設定三步驟</a>
+    <a href="checker.html" target="_blank" rel="noopener">? 可疑文字檢查器</a>
+    <a href="#tips">★ 八個實用技巧</a>
+    <a href="#read">↗ 延伸閱讀</a>
+  </div>
+</aside>
+
 <main>
 
-<section id="files">
-<h2>資料包</h2>
-<p class="sub">點檔名直接下載。CSV 用 Excel 開若是亂碼，改用記事本開。</p>
-<div class="grid">
-<a class="file hl" href="files/00_禾光委託信.pdf"><b>00 禾光委託信</b><span>總經理的委託｜開場</span></a>
-<a class="file" href="files/01_禾光公司簡介.pdf"><b>01 禾光公司簡介</b><span>公司背景</span></a>
-<a class="file" href="files/01_個人加班紀錄_完全虛構_僅本機.csv"><b>01 個人加班紀錄 CSV</b><span>10:25｜只在自己電腦開，不要貼給 AI</span></a>
-<a class="file" href="files/02_群組加班彙總_完全虛構_供AI示範.csv"><b>02 群組加班彙總 CSV</b><span>10:25｜可以貼給 AI</span></a>
-<a class="file" href="files/03_CSV_學員工作單.docx"><b>03 CSV 學員工作單</b><span>10:25</span></a>
-<a class="file" href="files/張凱婷_三則原始回答.pdf"><b>張凱婷：三則原始回答</b><span>11:05｜AI 偵探</span></a>
-<a class="file" href="https://chatgpt.com/share/69048266-d5c0-800a-b0c5-a7fcbc39fabc"><b>張凱婷｜第 1 次原始對話 ↗</b><span>ChatGPT 分享連結</span></a>
-<a class="file" href="https://chatgpt.com/share/687e9820-2368-800a-a556-ce22aeac0ed7"><b>張凱婷｜第 2 次原始對話 ↗</b><span>ChatGPT 分享連結</span></a>
-<a class="file" href="https://chatgpt.com/share/687e8d0c-f6e4-800a-9a95-0d63b8f4e22a"><b>張凱婷｜第 3 次原始對話 ↗</b><span>ChatGPT 分享連結</span></a>
-<a class="file" href="files/09_九月營運週報_完全虛構.csv"><b>09 九月營運週報 CSV</b><span>11:22｜Q5</span></a>
-<a class="file" href="files/釣魚範例信_練習用.txt"><b>釣魚範例信（練習用）</b><span>11:37｜貼進檢查器</span></a>
-<a class="file hl" href="files/06_資料彙整作業規範.pdf"><b>06 資料彙整作業規範</b><span>13:10｜上傳 Gemini Notebook</span></a>
-<a class="file hl" href="files/07_例外情況與資料分享辦法.pdf"><b>07 例外情況與資料分享辦法</b><span>13:10｜上傳 Gemini Notebook</span></a>
-<a class="file hl" href="files/08_跨部門週會逐字稿.pdf"><b>08 跨部門週會逐字稿</b><span>13:10｜上傳 Gemini Notebook</span></a>
-<a class="file" href="files/挑戰卡_A-E.pdf"><b>挑戰卡 A–E</b><span>14:40｜電子版</span></a>
-</div>
+<!-- ============ ① ============ -->
+<section class="block" id="b1" data-start="09:00" data-end="10:15">
+  <div class="bh"><div class="bn">01</div><div><div class="meta">09:00–10:15</div><h2>認識 AI<span class="livebadge">進行中</span></h2></div>
+  <p class="goal">AI 為什麼會自信地講錯？把「感覺」寫成別人能驗收的需求。</p></div>
+  <div class="items">
+    <article class="item" data-t="09:02">
+      <div class="ih"><span class="time">09:02</span><span class="chip">資料</span><h3>總經理的委託</h3></div>
+      <p class="hint">今天你們是禾光的 AI 顧問。每完成一站，找總經理（講師）在任務護照上核章。</p>
+      <div class="files">
+        <a class="file" href="files/00_禾光委託信.pdf"><span class="ext pdf">PDF</span><span><b>00 禾光委託信</b><span>總經理林予晴的三個擔心</span></span></a>
+        <a class="file" href="files/01_禾光公司簡介.pdf"><span class="ext pdf">PDF</span><span><b>01 禾光公司簡介</b><span>16 人、四個部門</span></span></a>
+      </div>
+    </article>
+    <article class="item" data-t="09:05">
+      <div class="ih"><span class="time">09:05</span><span class="chip tool">投票</span><h3>加入今天的 Mentimeter</h3></div>
+      <p class="hint">全天都在同一個房間，不用登入、匿名作答。到 <a href="https://www.menti.com/al161coi5i5u" target="_blank" rel="noopener"><b>menti.com</b></a> 輸入代碼 <b style="font-family:var(--num);letter-spacing:.06em">1752 4495</b>，或直接點上面的「加入投票」。<br>有問題隨時在 Mentimeter 匿名發問，也可以幫別人的問題按讚；15:43 一起回答。</p>
+    </article>
+    <article class="item" data-t="10:02">
+      <div class="ih"><span class="time">10:02</span><span class="chip do">動手</span><h3>Spec 卡：把「感覺」變成別人能照著做的需求</h3></div>
+      <p class="hint">先照五格寫一次，熟了以後用一句話講齊就好。不用記時間碼：用劇情、段落、人物當「錨點」也可以，只要對方找得到。</p>
+      <div class="builder" data-builder="spec">
+        <div class="fields">
+          <label>① 哪個片段（錨點）<em>選一種說法：</em>
+            <span class="anchors"><button type="button" data-anc="時間">時間</button><button type="button" data-anc="劇情">劇情</button><button type="button" data-anc="段落">段落</button><button type="button" data-anc="人物">人物</button></span>
+            <input data-k="a" placeholder="例：奶奶故事之前那段"></label>
+          <label>② 哪個元素 <em>說位置＋東西，例：左上角的說明文字、字幕、背景音樂</em><input data-k="b" placeholder="例：左上角的說明文字"></label>
+          <label>③ 怎麼改 <em>具體的動作，例：放大到兩倍、換成深色底白字、音量降一半</em><input data-k="c" placeholder="例：字放大到兩倍"></label>
+          <label>④ 為了什麼 <em>想讓看的人怎樣，例：第一眼就知道這段在講什麼</em><input data-k="d" placeholder="例：觀眾第一眼就看到重點"></label>
+          <label>⑤ 怎麼確認改好了 <em>換一個人來檢查也能判斷，例：給沒看過的人看 3 秒，他說得出主題</em><input data-k="e" placeholder="例：標題高度至少占畫面 1/10"></label>
+          <div class="frow"><button type="button" class="btn lt" data-demo>放入範例</button></div>
+        </div>
+        <div class="preview">
+          <div class="meter"><i></i><i></i><i></i><i></i><i></i></div>
+          <p class="coach" data-coach></p>
+          <div class="pbox short"><pre data-out></pre><div class="pbar"><button class="btn lt" data-clear>清空</button><button class="btn or" data-copy>複製</button></div></div>
+          <details class="variants"><summary>同一個需求，三種寫法</summary>
+            <div class="var"><b>格子版</b>開頭片名出現時｜大標題｜字放大到兩倍｜觀眾第一眼就知道主題｜標題高度至少占畫面 1/10</div>
+            <div class="var"><b>一句話版</b>「開頭片名出現時，大標題放大到兩倍，讓觀眾第一眼就知道主題；標題高度至少占畫面 1/10 就算完成。」</div>
+            <div class="var"><b>改前／改後版</b>現在：標題太小，第一眼看不到 → 希望：第一眼就看到 → 檢查：給沒看過的人看 3 秒，他說得出主題</div>
+          </details>
+        </div>
+      </div>
+    </article>
+    <article class="item xq" data-xq="tok"></article>
+  </div>
+  <div class="brk">☕ <span><b>10:15–10:25 休息</b>　回來先關掉 AI 的訓練設定。</span></div>
 </section>
 
-<section id="am">
-<h2>上午提示詞</h2>
-<h3><span class="tag">09:45</span>Spec 卡：把「感覺」變成可驗收的需求</h3>
-<div class="prompt">① 哪個片段（時間碼）：
-② 哪個元素：
-③ 怎麼改：
-④ 要達成什麼效果：
-⑤ 怎麼驗收（別人看這張卡就能判斷）：</div>
+<!-- ============ ② ============ -->
+<section class="block" id="b2" data-start="10:25" data-end="12:00">
+  <div class="bh"><div class="bn">02</div><div><div class="meta">10:25–12:00</div><h2>保護與查證<span class="livebadge">進行中</span></h2></div>
+  <p class="goal">資料交給 AI 之前先處理；有來源，不等於有證據。</p></div>
+  <div class="items">
+    <article class="item" data-t="10:25" id="privacy">
+      <div class="ih"><span class="time">10:25</span><span class="chip do">動手</span><h3>關掉「用我的對話訓練模型」</h3></div>
+      <p class="hint">用哪個就關哪個。關掉訓練，不等於完全不保留：不該上傳的，一開始就不要上傳。</p>
+      <div class="plat">
+        <div class="pl" data-pl="gpt"><h4>ChatGPT</h4>
+          <ol><li>左下角你的名字 → 設定</li><li>資料控制</li><li>關閉「協助改善所有人的模型體驗」</li></ol>
+          <div class="acts"><a href="https://chatgpt.com/settings/data-controls" target="_blank" rel="noopener">直接開設定頁</a><button data-shot="gpt">看截圖</button><button class="tick" data-tick>我關好了</button></div>
+          <div class="k2">按讚／倒讚時，整段對話仍可能用於訓練；臨時對話最多保留 30 天。<a href="https://help.openai.com/en/articles/7730893" target="_blank" rel="noopener">官方說明</a></div></div>
+        <div class="pl" data-pl="gem"><h4>Gemini</h4>
+          <ol><li>左下角齒輪「設定與說明」</li><li>活動記錄</li><li>「保留活動記錄」按「開啟 ▾」→ 關閉</li></ol>
+          <div class="acts"><a href="https://myactivity.google.com/product/gemini" target="_blank" rel="noopener">直接開活動記錄</a><button data-shot="gem">看截圖</button><button class="tick" data-tick>我關好了</button></div>
+          <div class="k2">即使關閉，Google 仍會將對話保留 72 小時。<a href="https://support.google.com/gemini/answer/13278892" target="_blank" rel="noopener">官方說明</a></div></div>
+        <div class="pl" data-pl="cla"><h4>Claude</h4>
+          <ol><li>左下角你的名字 → 設定</li><li>隱私權</li><li>關閉「Help improve our AI models」</li></ol>
+          <div class="acts"><a href="https://claude.ai/settings/data-privacy-controls" target="_blank" rel="noopener">直接開設定頁</a><button data-shot="cla">看截圖</button><button class="tick" data-tick>我關好了</button></div>
+          <div class="k2">被安全機制標記的對話，仍可能被保留與審查。<a href="https://privacy.claude.com/en/articles/12109829" target="_blank" rel="noopener">官方說明</a></div></div>
+      </div>
+      <div class="prog"><div class="bar"><i id="pbar"></i></div><span id="ptext">0 / 3 關好了（沒用的平台不用管）</span></div>
+    </article>
 
-<h3><span class="tag">10:45</span>只把 02 彙總表貼給 AI</h3>
-<div class="prompt">你是管理資料摘要助理。僅根據以下完全虛構的群組加班統計，產出繁體中文、120 字以內的主管摘要。
+    <article class="item" data-t="10:30">
+      <div class="ih"><span class="time">10:30</span><span class="chip">資料</span><h3>CSV 偵探：人資給了你一份加班明細</h3></div>
+      <p class="hint">先只在自己電腦打開 01，<b>不要貼給 AI</b>。CSV 用 Excel 開是亂碼的話，改用記事本開。</p>
+      <div class="files">
+        <a class="file" href="files/01_個人加班紀錄_完全虛構_僅本機.csv"><span class="ext csv">CSV</span><span><b>01 個人加班紀錄</b><span class="flag no">只在本機看，不要貼給 AI</span></span></a>
+        <a class="file" href="files/02_群組加班彙總_完全虛構_供AI示範.csv"><span class="ext csv">CSV</span><span><b>02 群組加班彙總</b><span class="flag yes">小部門已合併，可以貼給 AI</span></span></a>
+        <a class="file" href="files/03_CSV_學員工作單.docx"><span class="ext doc">DOCX</span><span><b>03 CSV 學員工作單</b><span>階段 A、B 一起填</span></span></a>
+      </div>
+    </article>
+
+    <article class="item" data-t="10:45">
+      <div class="ih"><span class="time">10:45</span><span class="chip p">提示詞</span><h3>只把 02 彙總表貼給 AI，然後自己驗算</h3></div>
+      <p class="hint">AI 寫完，查證員對一次：人數、平均和表格一樣嗎？哪些句子是 AI 自己推測的？</p>
+      <div class="pbox"><pre>你是管理資料摘要助理。僅根據以下完全虛構的群組加班統計，產出繁體中文、120 字以內的主管摘要。
 要求：
 1. 說明平均加班時數最高的是哪個群組及數值。
 2. 不得臆測造成差異的原因。
@@ -89,132 +408,478 @@ footer{color:var(--g);font-size:14px;padding:0 6vw 40px}
 群組,人數,加班總時數,平均加班時數_小時
 合併支援職能（法遵＋人資）,5,66,13.2
 營運,5,65,13.0
-客服,6,102,17.0</div>
+客服,6,102,17.0</pre><div class="pbar"><button class="btn more">展開全文</button><button class="btn or" data-copy>複製</button></div></div>
+    </article>
 
-<h3><span class="tag">11:22</span>Q5：請 AI 找反證，不要替你下結論</h3>
-<div class="prompt">以下是一家虛構公司的 9 月營運週報。
+    <article class="item" data-t="11:05">
+      <div class="ih"><span class="time">11:05</span><span class="chip">資料</span><h3>AI 偵探：同一題問三次，三個答案</h3></div>
+      <p class="hint">每一則都附了「來源」。打開之後，有哪一個真的寫了這些型號和這句話？</p>
+      <div class="files">
+        <a class="file" href="files/張凱婷_三則原始回答.pdf"><span class="ext pdf">PDF</span><span><b>三則回答（整理版）</b><span>可以並排比較</span></span></a>
+        <a class="file" href="https://chatgpt.com/share/69048266-d5c0-800a-b0c5-a7fcbc39fabc" target="_blank" rel="noopener"><span class="ext lnk">↗</span><span><b>第 1 次原始對話</b><span>ChatGPT 分享連結</span></span></a>
+        <a class="file" href="https://chatgpt.com/share/687e9820-2368-800a-a556-ce22aeac0ed7" target="_blank" rel="noopener"><span class="ext lnk">↗</span><span><b>第 2 次原始對話</b><span>ChatGPT 分享連結</span></span></a>
+        <a class="file" href="https://chatgpt.com/share/687e8d0c-f6e4-800a-9a95-0d63b8f4e22a" target="_blank" rel="noopener"><span class="ext lnk">↗</span><span><b>第 3 次原始對話</b><span>ChatGPT 分享連結</span></span></a>
+      </div>
+    </article>
+
+    <article class="item" data-t="11:22">
+      <div class="ih"><span class="time">11:22</span><span class="chip p">提示詞</span><h3>Q5：請 AI 找反證，不要替你下結論</h3></div>
+      <p class="hint">先自己寫一個管理結論，填進底線，再請 AI 找可能推翻它的證據。</p>
+      <div class="files"><a class="file" href="files/09_九月營運週報_完全虛構.csv"><span class="ext csv">CSV</span><span><b>09 九月營運週報</b><span>W1–W5 的訂單、客訴、出貨</span></span></a></div>
+      <div class="pbox"><pre>以下是一家虛構公司的 9 月營運週報。
 我們的初步判斷是：「＿＿＿＿＿＿＿＿」。
 請不要替我下結論，只要列出：
 1. 資料中支持這個判斷的證據（附欄位與數字）
 2. 至少 3 個可能推翻它的證據或替代解釋
 3. 還需要哪些資料才能判斷
-資料：（貼上 09_九月營運週報 的內容）</div>
+資料：（貼上 09_九月營運週報 的內容）</pre><div class="pbar"><button class="btn more">展開全文</button><button class="btn or" data-copy>複製</button></div></div>
+    </article>
 
-<h3><span class="tag">11:37</span>問 AI：這封信是不是釣魚？</h3>
-<div class="prompt">以下是一封我收到的信。請告訴我：
+    <article class="item xq" data-xq="syc"></article>
+    <article class="item" data-t="11:37">
+      <div class="ih"><span class="time">11:37</span><span class="chip tool">工具</span><h3>這封信是不是釣魚？三種查法</h3></div>
+      <p class="hint">① 貼進<a href="checker.html" target="_blank" rel="noopener"><b>可疑文字檢查器</b></a>　② 問 AI（下面的提示詞）　③ 用你原本就有的電話或官網確認，不要用信裡的聯絡方式。</p>
+      <div class="files">
+        <a class="file" href="files/釣魚範例信_練習用.txt"><span class="ext">TXT</span><span><b>釣魚範例信（練習用）</b><span>虛構，請勿當真</span></span></a>
+        <a class="file" href="checker.html" target="_blank" rel="noopener"><span class="ext lnk">?</span><span><b>可疑文字檢查器</b><span>資料只在你的瀏覽器處理</span></span></a>
+      </div>
+      <div class="pbox"><pre>以下是一封我收到的信。請告訴我：
 1. 它可能是釣魚或詐騙嗎？列出可疑的地方。
 2. 寄件者網址或文字裡，有沒有看起來像、但其實不同的字元？
 3. 我應該用什麼方式查證（不要用信裡提供的聯絡方式）？
-信件內容：（貼上）</div>
+信件內容：（貼上）</pre><div class="pbar"><button class="btn more">展開全文</button><button class="btn or" data-copy>複製</button></div></div>
+    </article>
+
+    <article class="item" data-t="11:45">
+      <div class="ih"><span class="time">11:45</span><span class="chip tool">小遊戲</span><h3>找出假的那一個（課後也可以玩）</h3></div>
+      <p class="hint">兩個看起來一樣，點你覺得「有問題」的那個。最後一題連檢查器都抓不到，要靠你的眼睛。</p>
+      <div class="game" id="game">
+        <p class="gq" id="gq"></p>
+        <div class="opts" id="gopts"></div>
+        <div class="gfb" id="gfb"></div>
+        <div class="gfoot"><span id="gscore"></span><button class="btn lt" id="gnext" hidden>下一題 →</button></div>
+      </div>
+    </article>
+  </div>
+  <div class="brk">🍱 <span><b>12:00–13:00 午休</b>　回來前先登入 <a href="https://notebook.google.com" target="_blank" rel="noopener">Gemini Notebook</a>，下午第一件事就是上傳 06、07、08。</span></div>
 </section>
 
-<section id="pm">
-<h2>下午提示詞</h2>
-<h3><span class="tag">13:00</span>三個馬上能用的技巧</h3>
-<div class="prompt">開始之前，先問我 3 個你需要知道的問題，等我回答完再開始。</div>
-<div class="prompt">以下是另一個 AI 寫的內容。請挑出錯誤、沒有根據的說法，以及需要查證的數字，逐點列出。
-（貼上內容）</div>
-<div class="prompt">你的任務是為目前這段對話建立一份「快照」，讓我可以開新對話接著做。
-請不要逐字摘要，而是整理：主題摘要／目前進度／關鍵設定（角色、語氣、格式）／下一步。</div>
+<!-- ============ ③ ============ -->
+<section class="block" id="b3" data-start="13:00" data-end="14:05">
+  <div class="bh"><div class="bn">03</div><div><div class="meta">13:00–14:05</div><h2>讀文件<span class="livebadge">進行中</span></h2></div>
+  <p class="goal">AI 讀得快，附則要自己看。長文摘要、會議紀錄、藏起來的指令。</p></div>
+  <div class="items">
+    <article class="item" data-t="13:00">
+      <div class="ih"><span class="time">13:00</span><span class="chip p">提示詞 ×3</span><h3>午後暖身：三個馬上能用的技巧</h3></div>
+      <div class="trio">
+        <div class="tcase"><div class="tn">01</div><b>先讓 AI 問你</b>
+          <p class="scene"><span>情境</span>主管只說「幫我寫個尾牙公告」，你連日期、地點都還不確定。</p>
+          <div class="pbox short"><pre>我要寫一份給全公司的尾牙公告。開始之前，先問我 3 個你需要知道的問題，等我回答完再開始。</pre><div class="pbar"><button class="btn or" data-copy>複製</button></div></div></div>
+        <div class="tcase"><div class="tn">02</div><b>換一個 AI 審稿</b>
+          <p class="scene"><span>情境</span>ChatGPT 幫你寫好給客戶的回信，寄出前想再確認一次。把整封信貼到 Gemini 或 Claude：</p>
+          <div class="pbox short"><pre>以下是另一個 AI 寫的內容。請挑出錯誤、沒有根據的說法，以及需要查證的數字，逐點列出。
+（貼上內容）</pre><div class="pbar"><button class="btn or" data-copy>複製</button></div></div></div>
+        <div class="tcase"><div class="tn">03</div><b>對話太長就存檔</b>
+          <p class="scene"><span>情境</span>和 AI 來回改了 20 輪簡報大綱，它開始忘記「每點不超過 20 字」。先請它做快照，開新對話，把快照貼上再繼續：</p>
+          <div class="pbox short"><pre>你的任務是為目前這段對話建立一份「快照」，讓我可以開新對話接著做。
+請不要逐字摘要，而是整理：主題摘要／目前進度／關鍵設定（角色、語氣、格式）／下一步。</pre><div class="pbar"><button class="btn or" data-copy>複製</button></div></div></div>
+      </div>
+    </article>
 
-<h3><span class="tag">13:25</span>Gemini Notebook：長文摘要</h3>
-<div class="prompt">請根據這三份來源，為總經理寫 5 點摘要。
+    <article class="item" data-t="13:15">
+      <div class="ih"><span class="time">13:15</span><span class="chip do">動手</span><h3>建筆記本、上傳三份文件，並且存起來</h3></div>
+      <ol class="steps">
+        <li>打開 <a href="https://notebook.google.com" target="_blank" rel="noopener"><b>Gemini Notebook</b></a>（原 NotebookLM），用你的 Google 帳號登入</li>
+        <li>新增一個筆記本，<b>名稱改成「禾光_第＿組_你的名字」</b>，之後才找得到</li>
+        <li>新增來源：上傳下面三份 PDF。計時者確認全組都上傳成功</li>
+        <li>先按「語音概覽」，生成要幾分鐘，邊等邊做下一步</li>
+        <li>好的回答按下方的<b>「儲存至記事」</b>留下來。筆記本會留在你的帳號裡，回家還能打開</li>
+      </ol>
+      <p class="hint" style="font-size:13.5px">按鈕名稱以畫面為準，介面可能更新。</p>
+      <div class="files">
+        <a class="file" href="files/06_資料彙整作業規範.pdf"><span class="ext pdf">PDF</span><span><b>06 資料彙整作業規範</b><span>記得看到最後一頁</span></span></a>
+        <a class="file" href="files/07_例外情況與資料分享辦法.pdf"><span class="ext pdf">PDF</span><span><b>07 例外情況與資料分享辦法</b><span>一般說明＋例外條款</span></span></a>
+        <a class="file" href="files/08_跨部門週會逐字稿.pdf"><span class="ext pdf">PDF</span><span><b>08 跨部門週會逐字稿</b><span>9/30 週會</span></span></a>
+      </div>
+    </article>
+
+    <article class="item" data-t="13:25">
+      <div class="ih"><span class="time">13:25</span><span class="chip p">提示詞</span><h3>長文摘要：5 點，每點附引用</h3></div>
+      <p class="hint">查證員逐點點引用，回到原文看一次。</p>
+      <div class="pbox"><pre>請根據這三份來源，為總經理寫 5 點摘要。
 每一點都要附上引用。
 如果來源中有附則、例外條款或限制條件，請獨立列出，不要合併進一般說明。
-無法從來源確認的內容，請標示【待確認】。</div>
+無法從來源確認的內容，請標示【待確認】。</pre><div class="pbar"><button class="btn more">展開全文</button><button class="btn or" data-copy>複製</button></div></div>
+    </article>
 
-<h3><span class="tag">13:37</span>Gemini Notebook：會議紀錄五欄</h3>
-<div class="prompt">請只根據「08 跨部門週會逐字稿」整理會議紀錄，分成五欄：
+    <article class="item xq" data-xq="mid"></article>
+    <article class="item" data-t="13:37">
+      <div class="ih"><span class="time">13:37</span><span class="chip p">提示詞</span><h3>會議紀錄五欄：分得出「提案」和「定案」</h3></div>
+      <p class="hint">逐字稿裡藏了一個「只有一個人提議」的意見，和兩件「沒有負責人」的待辦。看看 AI 抓不抓得到。</p>
+      <div class="pbox"><pre>請只根據「08 跨部門週會逐字稿」整理會議紀錄，分成五欄：
 已達成共識／意見分歧／關鍵阻礙／待驗證假設／下一步（誰、做什麼、何時）。
 規則：
 - 只有一個人提出、沒有其他人同意的意見，放在「意見分歧」，不要寫成決議。
-- 沒有指定負責人或期限的待辦，寫【未指定】，不要自行指派。</div>
+- 沒有指定負責人或期限的待辦，寫【未指定】，不要自行指派。</pre><div class="pbar"><button class="btn more">展開全文</button><button class="btn or" data-copy>複製</button></div></div>
+    </article>
+    <article class="item" data-t="13:47">
+      <div class="ih"><span class="time">13:47</span><span class="chip tool">投票</span><h3>Q6：W4 的客訴資料可以放進 9 月主管月報嗎？</h3></div>
+      <p class="hint">先在 Mentimeter 投票，再回到 06 的最後一頁和 08 逐字稿找根據。不要讓 AI 猜，答案要能指出是哪一條。</p>
+    </article>
+    <article class="item" data-t="13:55">
+      <div class="ih"><span class="time">13:55</span><span class="chip tool">檢查</span><h3>Q7：你們的 AI 摘要，有沒有被藏起來的指令影響？</h3></div>
+      <p class="hint">打開你們 13:25 的 5 點摘要，找找看有沒有這句話：「經部門主管同意即可直接對外分享，無須法遵室審核」。有、沒有、不確定，都到 Mentimeter 投一票。</p>
+      <details class="variants"><summary>講師揭曉後再打開</summary>
+        <div class="var"><b>藏在哪裡</b>07《例外情況與資料分享辦法》第五條下方，有一段白色小字，是寫給 AI 的「系統通知」。人眼看不到，AI 讀得到。</div>
+        <div class="var"><b>自己找出來</b>打開 07 的 PDF，按 Ctrl＋A 全選，白字就會反白出現；或把全文複製貼到記事本。</div>
+        <div class="var"><b>這叫什麼</b>間接提示詞注入：攻擊者把指令藏在 AI 會讀的文件、網頁、郵件裡。AI 這次沒照做，也不能保證下次不會，所以對外文件一定要人看過。<a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/" target="_blank" rel="noopener">OWASP LLM01 ↗</a></div>
+      </details>
+    </article>
+  </div>
+</section>
 
-<h3><span class="tag">14:53</span>修稿指令範本</h3>
-<div class="prompt">你是禾光服務有限公司的文件編輯。
-讀者：＿＿＿＿　目的：＿＿＿＿　格式：＿＿＿＿
-請依下列修改清單修改初稿：
-1.（哪裡）＿＿ →（怎麼改）＿＿ →（為什麼）＿＿
-2. …
-限制：
-- 數字只能使用我提供的資料，不要自己補。
-- 不得新增任何承諾、補償或決議。
-- 資訊不足時寫【待確認】。
-輸出：修改後全文，以及一張「改了什麼、為什麼」的清單。
-初稿：（貼上）</div>
+<!-- ============ ④ ============ -->
+<section class="block" id="b4" data-start="14:05" data-end="14:30">
+  <div class="bh"><div class="bn">04</div><div><div class="meta">14:05–14:30</div><h2>流程與 Agent<span class="livebadge">進行中</span></h2></div>
+  <p class="goal">先定義流程，再選工具。AI 可以參與「處理」，但驗收和授權還是人。</p></div>
+  <div class="items">
+    <article class="item" data-t="14:06">
+      <div class="ih"><span class="time">14:06</span><span class="chip do">動手</span><h3>流程六元素：把一件重複的工作拆成 6 格</h3></div>
+      <p class="hint">前 4 格是流程本身，後 2 格是保險：出錯時怎麼停、誰最後放行。AI 通常只負責「處理」那一格。講師會先用範例示範一次，再換成你們的挑戰卡。填完就是護照第 ⑤ 站。</p>
+      <div class="flowmap" aria-hidden="true">
+        <span>觸發</span><i>→</i><span>輸入</span><i>→</i><span class="ai">處理<small>AI 可以做</small></span><i>→</i><span>輸出</span>
+        <div class="gates"><span class="gate">例外：出錯就停</span><span class="gate">人工確認：誰放行</span></div>
+      </div>
+      <div class="builder" data-builder="flow">
+        <div class="fields">
+          <label>01 觸發 <em>什麼時候開始？</em><input data-k="a" placeholder="例：每週五 16:00"></label>
+          <label>02 輸入 <em>資料從哪來、能不能給 AI？</em><input data-k="b" placeholder="例：人資核准的群組彙總表"></label>
+          <label>03 處理 <em>AI 要做什麼？</em><input data-k="c" placeholder="例：比對數字，寫 120 字摘要"></label>
+          <label>04 輸出 <em>交給誰、什麼格式？</em><input data-k="d" placeholder="例：一頁摘要草稿，給總經理"></label>
+          <label>05 例外 <em>缺資料、數字對不上時怎麼辦？</em><input data-k="e" placeholder="例：標「待查」，停止寄送"></label>
+          <label>06 人工確認 <em>誰查證、誰放行？</em><input data-k="f" placeholder="例：人資主管核對後才寄出"></label>
+          <div class="frow"><button type="button" class="btn lt" data-demo>放入範例（禾光每週加班摘要）</button></div>
+        </div>
+        <div class="preview">
+          <div class="meter"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <p class="coach" data-coach></p>
+          <div class="pbox short"><pre data-out></pre><div class="pbar"><button class="btn lt" data-clear>清空</button><button class="btn or" data-copy>複製</button></div></div>
+        </div>
+      </div>
+    </article>
+    <article class="item" data-t="14:20">
+      <div class="ih"><span class="time">14:20</span><span class="chip p">範例</span><h3>Skill：把你的做法打包給 AI</h3></div>
+      <p class="hint">一個資料夾，裡面一份 SKILL.md，寫清楚「什麼時候用」和「怎麼做」。安裝別人的 Skill 前，先打開 SKILL.md 看一遍，就像安裝 App 前要看權限。<a href="https://agentskills.io" target="_blank" rel="noopener">規格說明 ↗</a></p>
+      <div class="pbox"><pre>---
+name: heguang-doc-review
+description: 審查禾光對內公告、客戶信、月報草稿時使用
+---
 
-<h3><span class="tag">15:13</span>濃縮成 3 頁簡報大綱</h3>
-<div class="prompt">請把我們的修改過程濃縮成 3 頁簡報大綱，給 2.5 分鐘的口頭報告使用：
+# 禾光文件審稿
+1. 數字逐一對照原始資料，附檔名
+2. 推測不能寫成原因或決議
+3. 少於 5 人的部門不能單獨呈現
+4. 不得出現其他客戶或調查中事件
+5. 列出需要人工確認的地方</pre><div class="pbar"><button class="btn more">展開全文</button><button class="btn or" data-copy>複製</button></div></div>
+    </article>
+  </div>
+  <div class="brk">☕ <span><b>14:30–14:40 休息</b>　回來接總經理的最後委託。</span></div>
+</section>
+
+<!-- ============ ⑤ ============ -->
+<section class="block" id="b5" data-start="14:40" data-end="15:37">
+  <div class="bh"><div class="bn">05</div><div><div class="meta">14:40–15:37</div><h2>交付：修到總經理可以簽名<span class="livebadge">進行中</span></h2></div>
+  <p class="goal">總經理用 AI 寫了五份初稿，每份至少藏了 4 個問題和 1 個漏掉的東西。</p></div>
+  <div class="items">
+    <article class="item" data-t="14:40">
+      <div class="ih"><span class="time">14:40</span><span class="chip">資料</span><h3>挑戰卡初稿：只複製你們抽到的那一張</h3></div>
+      <p class="hint">前 13 分鐘先人工審稿，<b>不要先丟給 AI</b>。</p>
+      <div class="tabs" role="tablist" id="ctabs"></div>
+      <div class="pbox" id="cbox"><pre id="cdraft"></pre><div class="pbar"><button class="btn more">展開全文</button><button class="btn or" data-copy>複製這張初稿</button></div></div>
+      <div class="roles">
+        <div class="role"><b><i>1</i>審稿長</b>帶大家對驗收清單，最後決定哪一版能簽名</div>
+        <div class="role"><b><i>2</i>查證員</b>回原始資料核對每個數字</div>
+        <div class="role"><b><i>3</i>提示詞工程師</b>用 Spec 公式寫修稿指令，操作 AI</div>
+        <div class="role"><b><i>4</i>風險官</b>抓個資、別的客戶、調查中、未核准承諾</div>
+        <div class="role"><b><i>5</i>發表人</b>請 AI 濃縮成 3 頁大綱，上台 2 分半，加講評共 3 分鐘</div>
+      </div>
+      <div class="files" style="margin-top:12px"><a class="file" href="files/挑戰卡_A-E.pdf"><span class="ext pdf">PDF</span><span><b>挑戰卡 A–E 電子版</b><span>和桌上的紙本一樣</span></span></a></div>
+    </article>
+
+    <article class="item" data-t="14:53">
+      <div class="ih"><span class="time">14:53</span><span class="chip do">動手</span><h3>修稿指令產生器（提示詞工程師用）</h3></div>
+      <p class="hint">把你們人工審出來的問題填進去，右邊就是可以直接貼給 AI 的指令。限制條件已經幫你寫好。</p>
+      <div class="builder" data-builder="fix">
+        <div class="fields">
+          <div class="row3">
+            <label>讀者<input data-k="r" placeholder="全體同仁"></label>
+            <label>目的<input data-k="p" placeholder="說明加班"></label>
+            <label>格式<input data-k="f" placeholder="公告 300 字"></label>
+          </div>
+          <label>修改 1 <em>哪裡 → 怎麼改 → 為什麼</em><input data-k="m1" placeholder="例：第＿段的＿＿ → 改成＿＿ → 根據哪份資料"></label>
+          <label>修改 2<input data-k="m2"></label>
+          <label>修改 3<input data-k="m3"></label>
+          <label>修改 4<input data-k="m4"></label>
+        </div>
+        <div class="preview">
+          <p class="coach" data-coach></p>
+          <div class="pbox short"><pre data-out></pre><div class="pbar"><button class="btn lt" data-clear>清空</button><button class="btn or" data-copy>複製</button></div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="item xq" data-xq="per"></article>
+    <article class="item" data-t="15:05">
+      <div class="ih"><span class="time">15:05</span><span class="chip do">自我檢查</span><h3>定稿前：驗收清單</h3></div>
+      <p class="hint">審稿長帶全組逐項打勾。五項都過了，再拿去給總經理核章。</p>
+      <div class="check" id="check">
+        <label><input type="checkbox"><span>數字和原始資料一致（附來源檔名）</span></label>
+        <label><input type="checkbox"><span>沒有把推測寫成原因或決議</span></label>
+        <label><input type="checkbox"><span>對象與語氣合適（給誰看？他需要知道什麼？）</span></label>
+        <label><input type="checkbox"><span>沒有不該公開的資訊（個資、小群體、其他客戶、調查中事件）</span></label>
+        <label><input type="checkbox"><span>有可以執行的下一步（誰、做什麼、何時）</span></label>
+      </div>
+      <div class="stampwrap"><div class="stamp" id="stamp"><span><small>禾光</small>可以<br>送簽</span></div><p id="stampText">還有 5 項沒確認。</p></div>
+    </article>
+
+    <article class="item" data-t="15:13">
+      <div class="ih"><span class="time">15:13</span><span class="chip p">提示詞</span><h3>濃縮成 3 頁簡報大綱（發表人用）</h3></div>
+      <p class="hint">交付：定稿＋「改了哪 3 處、為什麼、AI 哪裡又錯」→ 護照第 ⑥ 站。</p>
+      <div class="pbox"><pre>請把我們的修改過程濃縮成 3 頁簡報大綱，給 2 分半的口頭報告使用：
 第 1 頁 我們發現的問題；第 2 頁 我們怎麼修；第 3 頁 我們學到什麼。
-每頁一個主訊息、最多 3 點，每點不超過 20 字。</div>
+每頁一個主訊息、最多 3 點，每點不超過 20 字。</pre><div class="pbar"><button class="btn more">展開全文</button><button class="btn or" data-copy>複製</button></div></div>
+    </article>
+    <article class="item" data-t="15:16">
+      <div class="ih"><span class="time">15:16</span><span class="chip do">交件</span><h3>把定稿和 3 頁大綱貼進交件區</h3></div>
+      <p class="hint">每組只寫自己那一段，不用登入。15:20 講師直接投影這份文件發表。只貼禾光的虛構資料，不要貼真實個資或公司資料。</p>
+      <div class="files"><a class="file" href="https://docs.google.com/document/d/1CFfxMFa8D_GDubEkl2hE5mqaDcfl7ZjLprgCYmTtMh8/edit" target="_blank" rel="noopener"><span class="ext doc">DOC</span><span><b>禾光交件區（Google 文件）</b><span>① 定稿全文　② 改了哪 3 處、為什麼、AI 哪裡又錯　③ 3 頁大綱</span></span></a></div>
+    </article>
+    <article class="item" data-t="15:20">
+      <div class="ih"><span class="time">15:20</span><span class="chip">發表</span><h3>每組 3 分鐘：發表 2 分半＋講評 30 秒</h3></div>
+      <p class="hint">① 初稿裡最危險的一個錯　② 給 AI 的一句關鍵指令　③ 下次會先檢查什麼</p>
+    </article>
+  </div>
 </section>
 
-<section id="cards">
-<h2>挑戰卡初稿</h2>
-<p class="sub">各組只要複製自己抽到的那一張。初稿是總經理室用 AI 寫的，至少藏了 4 個問題和 1 個漏掉的東西。</p>
-<div id="cardbox"></div>
-</section>
+<!-- ============ ⑥ ============ -->
+<section class="block" id="b6" data-start="15:37" data-end="16:00">
+  <div class="bh"><div class="bn">06</div><div><div class="meta">15:37–16:00</div><h2>帶走<span class="livebadge">進行中</span></h2></div>
+  <p class="goal">AI 可以參與處理，但驗收與授權，還是你的。</p></div>
+  <div class="items">
+    <article class="item" data-t="15:37">
+      <div class="ih"><span class="time">15:37</span><span class="chip do">動手</span><h3>行動卡：回公司的第一步</h3></div>
+      <p class="hint">挑一件<b>每週都在做、出錯也不會出大事</b>的工作來試。寫在這裡會自動存在你的瀏覽器（只有你看得到），寫完可以複製或下載。</p>
+      <div class="builder" data-builder="act">
+        <div class="fields">
+          <label>1 我第一件想用 AI 試的工作<em>越具體越好：什麼文件、多久一次</em><textarea data-k="a" rows="2" placeholder="例：每週一的部門會議紀錄，整理成待辦清單"></textarea></label>
+          <label>2 會用到的資料能上傳嗎？要先怎麼處理？<em>有沒有個資、客戶名稱、內部數字？</em><textarea data-k="b" rows="2" placeholder="例：逐字稿有客戶姓名 → 先換成代號；用公司核准的 AI 帳號"></textarea></label>
+          <label>3 我會怎麼驗收 AI 的成果<em>用今天的方法：對原文、找推測、看有沒有漏</em><textarea data-k="c" rows="2" placeholder="例：抽 3 項待辦對照錄音；每項都要有負責人和期限"></textarea></label>
+          <label>4 誰需要最後放行<em>寫出職稱或名字</em><textarea data-k="d" rows="2" placeholder="例：部門主管看過才寄出"></textarea></label>
+        </div>
+        <div class="preview">
+          <div class="meter"><i></i><i></i><i></i><i></i></div>
+          <p class="coach" data-coach></p>
+          <div class="pbox short"><pre data-out></pre><div class="pbar"><button class="btn lt" data-dl>下載 .txt</button><button class="btn or" data-copy>複製</button></div></div>
+          <details class="variants"><summary>看兩個完整範例</summary>
+            <div class="var"><b>行政／總務</b>1 每月訪客與會議室使用統計，寫成給主管的三行摘要　2 只用彙總數字，不放訪客姓名　3 數字和原始表格逐一對照　4 總務主管</div>
+            <div class="var"><b>業務／客服</b>1 常見問題回信的草稿　2 不貼客戶姓名、訂單號碼，用「客戶 A」代替　3 寄出前換一個 AI 挑錯，自己確認沒有新增承諾　4 客服組長</div>
+          </details>
+        </div>
+      </div>
+    </article>
 
-<section id="privacy">
-<h2>關掉「用我的對話訓練模型」</h2>
-<div class="note">關掉訓練，不等於完全不保留資料。最安全的做法：不該上傳的，一開始就不要上傳。</div>
-<table>
-<tr><th>平台</th><th>位置</th><th>還要知道的事</th></tr>
-<tr><td><b>ChatGPT</b></td><td>點左下角你的名字 → 設定 → 資料控制 → 關閉「協助改善所有人的模型體驗」<br><a href="https://chatgpt.com/settings/data-controls">直接開設定頁</a></td><td>按讚／倒讚的回饋，整段對話仍可能用於訓練；臨時對話最多保留 30 天。<a href="https://help.openai.com/en/articles/7730893">官方說明</a></td></tr>
-<tr><td><b>Gemini</b></td><td>左下角齒輪「設定與說明」→ 活動記錄 →「保留活動記錄」下按「開啟 ▾」→ 改成「關閉」<br><a href="https://myactivity.google.com/product/gemini">直接開活動記錄</a></td><td>即使關閉，Google 仍會將對話保留 72 小時，用來回覆你並確保安全。<a href="https://support.google.com/gemini/answer/13278892">官方說明</a></td></tr>
-<tr><td><b>Claude</b></td><td>點左下角你的名字 → 設定 → 隱私權 → 關閉「Help improve our AI models」<br><a href="https://claude.ai/settings/data-privacy-controls">直接開設定頁</a></td><td>被安全機制標記的對話，仍可能被保留與審查。<a href="https://privacy.claude.com/en/articles/12109829">官方說明</a></td></tr>
-</table>
-<p class="sub" style="margin-top:22px">實際畫面（2026/10 截圖，橘框是要點的地方；介面可能更新）</p>
-<div class="shots">
-<figure><img src="files/shots/m_gpt.png" alt="ChatGPT 資料控制畫面"><figcaption>ChatGPT｜資料控制</figcaption></figure>
-<figure><img src="files/shots/m_gem_menu.png" alt="Gemini 設定與說明選單" style="max-width:180px"><img src="files/shots/m_gem_act.png" alt="Gemini 活動記錄畫面"><figcaption>Gemini｜設定與說明 → 活動記錄</figcaption></figure>
-<figure><img src="files/shots/m_claude.png" alt="Claude 隱私權畫面"><figcaption>Claude｜隱私權</figcaption></figure>
-</div>
-</section>
+    <article class="item xq" data-xq="det"></article>
+    <article class="item" id="tips">
+      <div class="ih"><span class="chip">隨時用</span><h3>八個實用技巧</h3></div>
+      <div class="tips">
+        <div class="tip"><i>01</i><b>先讓 AI 問你問題</b>需求還沒想清楚時，請它先問 3 個問題</div>
+        <div class="tip"><i>02</i><b>換一個 AI 審稿</b>把答案貼給另一家的 AI，請它挑錯</div>
+        <div class="tip"><i>03</i><b>對話存檔</b>對話太長時，整理進度後開新對話接著做</div>
+        <div class="tip"><i>04</i><b>用講的</b>手機語音輸入，口述之後再請 AI 整理</div>
+        <div class="tip"><i>05</i><b>截圖給 AI 看</b>表格、錯誤訊息、紙本照片都可以</div>
+        <div class="tip"><i>06</i><b>要可以貼進 Excel 的表格</b>「用表格輸出，欄位是……」</div>
+        <div class="tip"><i>07</i><b>請它當反對者</b>「你是最挑剔的主管，挑出這份報告的問題」</div>
+        <div class="tip"><i>08</i><b>要 3 個版本再挑</b>「同一段，給我 3 個不同語氣的版本」，比叫它重寫一次有效</div>
+      </div>
+    </article>
 
-<section id="tools">
-<h2>小工具</h2>
-<div class="grid">
-<a class="file hl" href="checker.html"><b>可疑文字檢查器</b><span>貼上網址或信件，標出長得像但不同的字元</span></a>
-</div>
-</section>
-
-<section id="tips">
-<h2>八個實用技巧</h2>
-<table>
-<tr><td><b>先讓 AI 問你問題</b></td><td>需求還沒想清楚時，請它先問 3 個問題</td></tr>
-<tr><td><b>換一個 AI 審稿</b></td><td>把答案貼給另一家的 AI，請它挑錯</td></tr>
-<tr><td><b>對話存檔</b></td><td>對話太長時，整理進度後開新對話接著做</td></tr>
-<tr><td><b>用講的</b></td><td>手機語音輸入，口述之後再請 AI 整理</td></tr>
-<tr><td><b>截圖給 AI 看</b></td><td>表格、錯誤訊息、紙本照片都可以</td></tr>
-<tr><td><b>要可以貼進 Excel 的表格</b></td><td>「用表格輸出，欄位是……」</td></tr>
-<tr><td><b>請它當反對者</b></td><td>「你是最挑剔的主管，挑出這份報告的問題」</td></tr>
-<tr><td><b>臨時對話</b></td><td>不想留紀錄、不想進記憶時使用</td></tr>
-</table>
-</section>
-
-<section id="read">
-<h2>延伸閱讀</h2>
-<table>
-<tr><td>Kalai 等人（2025）Why Language Models Hallucinate</td><td><a href="https://openai.com/index/why-language-models-hallucinate/">連結</a></td></tr>
-<tr><td>Liu、Zhang、Liang（2023）生成式搜尋引擎的引用可驗證性</td><td><a href="https://aclanthology.org/2023.findings-emnlp.467/">連結</a></td></tr>
-<tr><td>NIST SP 1270：AI 偏見</td><td><a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1270.pdf">連結</a></td></tr>
-<tr><td>OWASP LLM01：提示詞注入</td><td><a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">連結</a></td></tr>
-<tr><td>Unicode UTS #39：形似字元</td><td><a href="https://www.unicode.org/reports/tr39/">連結</a></td></tr>
-<tr><td>Agent Skills 規格</td><td><a href="https://agentskills.io">連結</a></td></tr>
-<tr><td>OpenAI 提示詞建議</td><td><a href="https://help.openai.com/en/articles/6654000">連結</a></td></tr>
-<tr><td>Anthropic 提示詞建議</td><td><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices">連結</a></td></tr>
-</table>
+    <article class="item" id="read">
+      <div class="ih"><span class="chip">延伸閱讀</span><h3>今天提到的研究與官方說明</h3></div>
+      <ul class="reads">
+        <li><a href="https://openai.com/index/why-language-models-hallucinate/" target="_blank" rel="noopener">Kalai 等人（2025）Why Language Models Hallucinate<span>↗</span></a></li>
+        <li><a href="https://aclanthology.org/2023.findings-emnlp.467/" target="_blank" rel="noopener">Liu、Zhang、Liang（2023）生成式搜尋引擎的引用可驗證性<span>↗</span></a></li>
+        <li><a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1270.pdf" target="_blank" rel="noopener">NIST SP 1270：AI 偏見<span>↗</span></a></li>
+        <li><a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/" target="_blank" rel="noopener">OWASP LLM01：提示詞注入<span>↗</span></a></li>
+        <li><a href="https://www.unicode.org/reports/tr39/" target="_blank" rel="noopener">Unicode UTS #39：形似字元<span>↗</span></a></li>
+        <li><a href="https://agentskills.io" target="_blank" rel="noopener">Agent Skills 規格<span>↗</span></a></li>
+        <li><a href="https://help.openai.com/en/articles/6654000" target="_blank" rel="noopener">OpenAI 提示詞建議<span>↗</span></a></li>
+        <li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices" target="_blank" rel="noopener">Anthropic 提示詞建議<span>↗</span></a></li>
+      </ul>
+    </article>
+  </div>
 </section>
 </main>
-<footer>臺北醫學大學進修推廣處｜AI 流程自動化與低程式碼應用實務班｜2026/10/17｜講師 QQ</footer>
+</div>
+
+<footer>臺北醫學大學進修推廣處｜AI 流程自動化與低程式碼應用實務班｜2026/10/17｜講師 QQ<br>所有公司、人物、數據皆為教學用虛構資料，與任何真實公司無關。</footer>
+
+<nav class="dock" aria-label="快速入口">
+  <a class="hot" href="https://www.menti.com/al161coi5i5u" target="_blank" rel="noopener"><b>1752 4495</b>投票</a>
+  <a href="#" id="dockNow"><b>●</b>現在</a>
+  <a href="#privacy"><b>⚙</b>隱私設定</a>
+  <a href="checker.html" target="_blank" rel="noopener"><b>?</b>檢查器</a>
+</nav>
+
+<dialog id="shot"><div class="dh"><span id="shotT"></span><button class="btn lt" onclick="this.closest('dialog').close()">關閉</button></div><div class="db" id="shotB"></div></dialog>
+<div class="toast" id="toast">已複製</div>
+
 <script src="cards.js"></script>
 <script>
-document.querySelectorAll('.prompt').forEach(p=>{const b=document.createElement('button');b.className='copy';b.textContent='複製';
-b.onclick=()=>{const t=p.childNodes[0].textContent;navigator.clipboard.writeText(t).then(()=>{b.textContent='已複製';setTimeout(()=>b.textContent='複製',1500)}).catch(()=>{const r=document.createRange();r.selectNodeContents(p);getSelection().removeAllRanges();getSelection().addRange(r)})};p.appendChild(b)});
-const box=document.getElementById('cardbox');(window.CARDS||[]).forEach(c=>{const h=document.createElement('h3');h.innerHTML='<span class="tag">'+c.key+'</span>'+c.title+'｜'+c.sub;
-const d=document.createElement('div');d.className='prompt';d.textContent=c.draft;box.appendChild(h);box.appendChild(d);
-const b=document.createElement('button');b.className='copy';b.textContent='複製';b.onclick=()=>{navigator.clipboard.writeText(c.draft).then(()=>{b.textContent='已複製';setTimeout(()=>b.textContent='複製',1500)})};d.appendChild(b)});
+(function(){
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const store={get(k,d){try{const v=localStorage.getItem('hg1017-'+k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem('hg1017-'+k,JSON.stringify(v))}catch(e){}}};
+function toast(t){const el=$('#toast');el.textContent=t||'已複製';el.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(()=>el.classList.remove('show'),1400)}
+function copy(text,btn){
+  const done=()=>{toast('已複製，可以貼到 AI 了');if(btn){const o=btn.textContent;btn.textContent='已複製 ✓';setTimeout(()=>btn.textContent=o,1500)}};
+  const fallback=()=>{const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(e){toast('請手動選取複製')}ta.remove()};
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done,fallback)}else fallback();
+}
+
+/* ---- prompt boxes ---- */
+function wire(box){
+  const pre=$('pre',box);
+  const c=$('[data-copy]',box); if(c&&!c.dataset.w){c.dataset.w=1;c.addEventListener('click',()=>copy(pre.textContent,c))}
+  const m=$('.more',box);
+  if(m&&!m.dataset.w){m.dataset.w=1;m.addEventListener('click',()=>{box.classList.toggle('open');m.textContent=box.classList.contains('open')?'收起':'展開全文'})}
+  requestAnimationFrame(()=>{ if(!box.classList.contains('open') && pre.scrollHeight<=pre.clientHeight+4) box.classList.add('short'); });
+}
+$$('.pbox').forEach(wire);
+
+/* ---- challenge cards ---- */
+const cards=window.CARDS||[]; const tabs=$('#ctabs'), cbox=$('#cbox'), cdraft=$('#cdraft');
+let cur=store.get('card',0);
+cards.forEach((c,i)=>{const b=document.createElement('button');b.className='tab';b.setAttribute('role','tab');b.innerHTML='<b>'+c.key+'</b>'+c.title+'<br><small style="opacity:.7">'+c.sub+'</small>';b.onclick=()=>show(i);tabs.appendChild(b)});
+function show(i){cur=i;store.set('card',i);$$('.tab',tabs).forEach((t,j)=>t.setAttribute('aria-selected',j===i));cdraft.textContent=cards[i]?cards[i].draft:'';cbox.classList.remove('open','short');$('.more',cbox).textContent='展開全文';wire(cbox)}
+if(cards.length) show(Math.min(cur,cards.length-1));
+
+/* ---- builders ---- */
+const B={
+  spec:{n:5,make:v=>`① 哪個片段：${v.a||''}\n② 哪個元素：${v.b||''}\n③ 怎麼改：${v.c||''}\n④ 為了什麼：${v.d||''}\n⑤ 怎麼確認改好了：${v.e||''}`,
+    demo:{a:'開頭片名出現時',b:'大標題',c:'字放大到兩倍',d:'觀眾第一眼就知道主題',e:'標題高度至少占畫面 1/10；給沒看過的人看 3 秒，他說得出主題'},
+    coach:v=>{ if(!Object.values(v).some(Boolean)) return ['', '從你最在意的那一個地方開始寫。'];
+      const all=v.a+v.b+v.c+v.d+v.e;
+      if(/好看|一點|優化|更好|感覺|適當|再.{0,2}一下|有質感|高級/.test(all)) return ['warn','有「好看、一點、優化」這類詞嗎？換成看得到、數得出來的說法。'];
+      if(!v.a||!v.b) return ['warn','先講清楚「哪裡」：錨點可以是時間、劇情、段落或人物，對方找得到就好。'];
+      if(!v.c) return ['warn','還缺「怎麼改」：要做什麼動作？'];
+      if(!v.e) return ['warn','還缺「怎麼確認改好了」：沒有這格，只能憑感覺判斷。'];
+      return ['good','很好：換一個人來改、來檢查，都知道要做到什麼程度。'] }},
+  flow:{n:6,demo:{a:'每週五 16:00',b:'人資核准的群組加班彙總表（02）',c:'AI 比對數字，寫 120 字主管摘要',d:'一頁摘要草稿，給總經理',e:'數字對不上、或有少於 5 人的組 → 標「待查」，停止寄送',f:'人資主管核對後才寄出'},make:v=>`流程六元素\n01 觸發：${v.a||''}\n02 輸入：${v.b||''}\n03 處理：${v.c||''}\n04 輸出：${v.d||''}\n05 例外：${v.e||''}\n06 人工確認：${v.f||''}`,
+    coach:v=>{ const any=Object.values(v).some(Boolean); if(!any) return ['','']; if(!v.e) return ['warn','還沒想「例外」：資料缺了、數字對不上時，流程要停下來嗎？']; if(!v.f) return ['warn','「人工確認」不能空：AI 可以處理，但誰放行？']; return ['good','六個都有了。這就是護照第 ⑤ 站。'] }},
+  fix:{n:0,make:v=>{const ms=[v.m1,v.m2,v.m3,v.m4].filter(Boolean);const list=ms.length?ms.map((m,i)=>`${i+1}. ${m}`).join('\n'):'1.（哪裡）＿＿ →（怎麼改）＿＿ →（為什麼）＿＿\n2. …';
+    return `你是禾光服務有限公司的文件編輯。\n讀者：${v.r||'＿＿＿＿'}　目的：${v.p||'＿＿＿＿'}　格式：${v.f||'＿＿＿＿'}\n請依下列修改清單修改初稿：\n${list}\n限制：\n- 數字只能使用我提供的資料，不要自己補。\n- 不得新增任何承諾、補償或決議。\n- 資訊不足時寫【待確認】。\n輸出：修改後全文，以及一張「改了什麼、為什麼」的清單。\n初稿：（貼上）`},
+    coach:v=>{ const ms=[v.m1,v.m2,v.m3,v.m4].filter(Boolean); if(!v.r&&!ms.length) return ['','先填讀者，再把人工審出來的問題一條條寫進去。']; if(!v.r) return ['warn','讀者是誰？公告給同仁和信給客戶，寫法完全不同。'];
+      if(ms.length&&ms.some(m=>!/→|->|為什麼|因為/.test(m))) return ['warn','每一條修改最好都寫「為什麼」，AI 才不會改錯方向。']; if(ms.length<3) return ['', '至少寫 3 條修改，這也是發表要講的「改了哪 3 處」。']; return ['good','指令完成。複製貼給 AI，再由查證員核對一次。'] }},
+  act:{n:4,save:true,make:v=>`回公司的第一步\n1 我第一件想用 AI 試的工作：${v.a||''}\n2 會用到的資料能上傳嗎？要先怎麼處理？${v.b||''}\n3 我會怎麼驗收 AI 的成果：${v.c||''}\n4 誰需要最後放行：${v.d||''}`,
+    coach:v=>{ const n=['a','b','c','d'].filter(k=>v[k]).length; return n===4?['good','完成！帶回去，下週就試一次。']:['',`還有 ${4-n} 題。`] }}
+};
+$$('[data-builder]').forEach(el=>{
+  const kind=el.dataset.builder, cfg=B[kind], ins=$$('[data-k]',el), out=$('[data-out]',el), coach=$('[data-coach]',el), meter=$$('.meter i',el);
+  const saved=cfg.save?store.get('act',{}):{};
+  ins.forEach(i=>{if(saved[i.dataset.k]) i.value=saved[i.dataset.k]});
+  function val(){const v={};ins.forEach(i=>v[i.dataset.k]=i.value.trim());return v}
+  function upd(){const v=val();out.textContent=cfg.make(v);const [cls,msg]=cfg.coach(v);coach.className='coach '+(cls||'');coach.textContent=msg;
+    if(meter.length){const filled=ins.filter(i=>i.value.trim()).length;meter.forEach((m,j)=>m.classList.toggle('on',j<filled))}
+    if(cfg.save) store.set('act',v)}
+  ins.forEach(i=>i.addEventListener('input',upd));
+  const c=$('[data-copy]',el); c.addEventListener('click',()=>copy(out.textContent,c));
+  const cl=$('[data-clear]',el); if(cl) cl.addEventListener('click',()=>{ins.forEach(i=>i.value='');upd()});
+  const dm=$('[data-demo]',el); if(dm&&cfg.demo) dm.addEventListener('click',()=>{ins.forEach(i=>{if(cfg.demo[i.dataset.k]!==undefined) i.value=cfg.demo[i.dataset.k]});upd()});
+  const AN={時間:'例：大約 00:35 開始那段',劇情:'例：奶奶故事之前那段',段落:'例：前半段、結尾前',人物:'例：主角第一次出場時'};
+  $$('[data-anc]',el).forEach(b=>b.addEventListener('click',()=>{$$('[data-anc]',el).forEach(x=>x.classList.toggle('on',x===b));const a=$('[data-k=a]',el);a.placeholder=AN[b.dataset.anc];a.focus()}));
+  const dl=$('[data-dl]',el); if(dl) dl.addEventListener('click',()=>{const blob=new Blob([out.textContent],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='我的行動卡_1017.txt';document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)});
+  upd();
+});
+
+/* ---- privacy ---- */
+const SHOTS={gpt:['ChatGPT｜設定 → 資料控制',['files/shots/m_gpt.png']],gem:['Gemini｜設定與說明 → 活動記錄',['files/shots/m_gem_menu.png','files/shots/m_gem_act.png']],cla:['Claude｜設定 → 隱私權',['files/shots/m_claude.png']]};
+$$('[data-shot]').forEach(b=>b.addEventListener('click',()=>{const [t,imgs]=SHOTS[b.dataset.shot];$('#shotT').textContent=t+'（橘框是要點的地方，2026/10 截圖）';$('#shotB').innerHTML=imgs.map(s=>`<img src="${s}" alt="${t} 截圖" ${s.includes('menu')?'style="max-width:200px"':''}>`).join('');const d=$('#shot');if(d.showModal)d.showModal();else window.open(imgs[0])}));
+const pdone=store.get('priv',{});
+function pupd(){const n=$$('.pl').filter(p=>pdone[p.dataset.pl]).length;$$('.pl').forEach(p=>{p.classList.toggle('done',!!pdone[p.dataset.pl]);$('[data-tick]',p).textContent=pdone[p.dataset.pl]?'已關閉 ✓':'我關好了'});$('#pbar').style.width=(n/3*100)+'%';$('#ptext').textContent=n+' / 3 關好了（沒用的平台不用管）'}
+$$('.pl [data-tick]').forEach(b=>b.addEventListener('click',()=>{const k=b.closest('.pl').dataset.pl;pdone[k]=!pdone[k];store.set('priv',pdone);pupd()}));pupd();
+
+/* ---- checklist + stamp ---- */
+const ck=$$('#check input'); const cs=store.get('check',[]);
+ck.forEach((c,i)=>{c.checked=!!cs[i];c.addEventListener('change',cupd)});
+function cupd(){const v=ck.map(c=>c.checked);store.set('check',v);const n=v.filter(Boolean).length;const st=$('#stamp');
+  if(n===5){st.classList.add('show');$('#stampText').innerHTML='<b>五項都過了。</b>拿著定稿和護照，去找總經理核章。'}else{st.classList.remove('show');$('#stampText').textContent='還有 '+(5-n)+' 項沒確認。'}}
+cupd();
+
+/* ---- homograph game ---- */
+const R=[
+ {q:'哪一個是假的 PayPal？',a:'paypal.com',b:'pаypal.com',why:'第二個字母是西里爾字母 <code>а</code>（U+0430），不是英文 a。'},
+ {q:'哪一個是假的 Google？',a:'google.com',b:'gооgle.com',why:'兩個 o 都換成了西里爾字母 <code>о</code>（U+043E）。'},
+ {q:'物流商寄來的信，哪一個寄件者有問題？',a:'billing@jiashun-logistics.example',b:'billing@jiаshun-logistics.example',why:'jiashun 的 a 是西里爾字母 <code>а</code>，就是今天釣魚範例信裡的那一個。'},
+ {q:'哪一個是假的 Apple？',a:'apple.com',b:'аpple.com',why:'開頭的 a 是西里爾字母 <code>а</code>。瀏覽器網址列有時會顯示成 xn-- 開頭的亂碼，那就是警訊。'},
+ {q:'最後一題：哪一個是假的 Microsoft？',a:'microsoft.com',b:'rnicrosoft.com',why:'這題是 <code>r</code>＋<code>n</code> 拼成像 <code>m</code>，全部都是正常英文字母，<b>檢查器抓不到</b>。所以最後一道防線，還是用原本的管道確認。'}
+];
+let gi=0,score=0,answered=false;
+function gshow(){const r=R[gi];answered=false;$('#gq').textContent=(gi+1)+' / '+R.length+'　'+r.q;$('#gfb').innerHTML='';$('#gnext').hidden=true;
+  const swap=Math.random()<.5;const pair=swap?[[r.b,1],[r.a,0]]:[[r.a,0],[r.b,1]];const o=$('#gopts');o.innerHTML='';
+  pair.forEach(([t,fake])=>{const b=document.createElement('button');b.className='opt';b.textContent=t;b.onclick=()=>{if(answered)return;answered=true;
+    if(fake){score++;b.classList.add('right');$('#gfb').innerHTML='✓ 答對了。'+r.why}else{b.classList.add('wrong');$$('.opt',o).find(x=>x!==b).classList.add('right');$('#gfb').innerHTML='✗ 這個是真的。'+r.why}
+    $('#gscore').textContent='得分 '+score+' / '+(gi+1);$('#gnext').hidden=false;$('#gnext').textContent=gi<R.length-1?'下一題 →':'再玩一次 ↺'};o.appendChild(b)});
+  $('#gscore').textContent=gi?('得分 '+score+' / '+gi):'';}
+$('#gnext').addEventListener('click',()=>{if(gi<R.length-1){gi++}else{gi=0;score=0}gshow()});gshow();
+
+
+/* ---- 隨堂加碼題 ---- */
+const XQ={
+ tok:{q:'以前很多 AI 數不對 strawberry 裡有幾個 r，為什麼？',o:['拼字資料太少','它讀到的是一塊一塊的「token」，不是一個個字母','它故意答錯'],a:1,
+   e:'模型把文字切成 token 來處理，一個 token 可能是半個單字或好幾個字母，所以「數字母、數字數」反而不擅長。這類問題交給工具，或自己數比較可靠。',src:['OpenAI：What are tokens','https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them']},
+ syc:{q:'你先跟 AI 說「我覺得是客服變差了，對吧？」它比較可能怎樣？',o:['照資料判斷，不受影響','比較容易順著你說','一定會反駁你'],a:1,
+   e:'研究發現，經過人類回饋訓練的模型有「附和使用者」的傾向（sycophancy）：你先表態，它比較容易順著說。所以 Q5 的提示詞是請它找反證，而不是先告訴它你想聽的答案。',src:['Sharma 等人（2023）Towards Understanding Sycophancy in Language Models','https://arxiv.org/abs/2310.13548']},
+ mid:{q:'把一份很長的文件丟給 AI，哪個位置的資訊最容易被忽略？',o:['最前面','中間','最後面'],a:1,
+   e:'研究發現，關鍵資訊放在開頭或結尾時模型答得最好，放在中間時表現明顯下降，呈 U 形。新模型已經改善不少，但重要的指令和條件，還是建議放在開頭，最後再提醒一次。',src:['Liu 等人（2024, TACL）Lost in the Middle','https://aclanthology.org/2024.tacl-1.9/']},
+ per:{q:'修稿指令開頭寫「你是禾光的文件編輯」，會讓 AI 的內容更正確嗎？',o:['會明顯更正確','對正確性幫助不大，主要影響語氣和格式','會變差'],a:1,
+   e:'一篇 2024 年的研究測試了上百種角色設定與數千題事實題，加上角色並沒有穩定提升正確率。角色的用處是定下語氣、讀者和格式；要正確，還是靠你給的資料和驗收。',src:['Zheng 等人（2024, Findings of EMNLP）Personas in System Prompts','https://aclanthology.org/2024.findings-emnlp.888/']},
+ det:{q:'用「AI 偵測器」判斷一篇文章是不是 AI 寫的，可靠嗎？',o:['很可靠，可以當證據','不太可靠，容易誤判'],a:1,
+   e:'OpenAI 在 2023 年 7 月下架了自家的 AI 文字偵測工具，理由是準確率太低。誤判會冤枉人；與其追究「是不是 AI 寫的」，不如檢查內容對不對、誰負責。',src:['OpenAI：AI classifier 下架說明','https://openai.com/index/new-ai-classifier-for-indicating-ai-written-text/']}
+};
+$$('.xq').forEach(el=>{const d=XQ[el.dataset.xq];if(!d)return;
+  el.innerHTML='<div class="ih"><span class="chip">隨堂加碼題</span><h3></h3></div><p class="hint">先自己猜，再點一個答案。</p><div class="xopts"></div><div class="xans"></div>';
+  $('h3',el).textContent=d.q;const box=$('.xopts',el);
+  d.o.forEach((t,i)=>{const b=document.createElement('button');b.className='xo';b.textContent=t;b.onclick=()=>{if(el.classList.contains('done'))return;el.classList.add('done');
+    $$('.xo',box).forEach((x,j)=>{if(j===d.a)x.classList.add('right');else if(x===b)x.classList.add('wrong')});
+    $('.xans',el).innerHTML=(i===d.a?'✓ 答對了。':'答案是「'+d.o[d.a]+'」。')+d.e+'<br><a href="'+d.src[1]+'" target="_blank" rel="noopener">來源：'+d.src[0]+' ↗</a>'};box.appendChild(b)});
+});
+/* ---- time awareness (Asia/Taipei, 2026-10-17) ---- */
+const toMin=s=>{const [h,m]=s.split(':').map(Number);return h*60+m};
+const blocks=$$('.block').map(b=>({el:b,id:b.id,s:toMin(b.dataset.start),e:toMin(b.dataset.end),name:$('h2',b).childNodes[0].textContent.trim(),items:$$('.item[data-t]',b).map(i=>({el:i,t:toMin(i.dataset.t),name:$('h3',i).textContent}))}));
+const BREAKS=[[toMin('10:15'),toMin('10:25'),'休息中','10:25 回來，先關掉 AI 訓練設定','b2'],[toMin('12:00'),toMin('13:00'),'午休中','13:00 回來；先登入 Gemini Notebook','b3'],[toMin('14:30'),toMin('14:40'),'休息中','14:40 回來接最後委託','b5']];
+function taipei(){const q=new URLSearchParams(location.search).get('t');if(q&&/^\d{1,2}:\d{2}$/.test(q))return {day:true,min:toMin(q)};
+  const p=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());const g=k=>p.find(x=>x.type===k).value;
+  return {day:`${g('year')}-${g('month')}-${g('day')}`==='2026-10-17',min:(+g('hour')%24)*60+(+g('minute'))}}
+function tick(){const {day,min}=taipei();const now=$('#now');let target=null;
+  $$('.live').forEach(x=>x.classList.remove('live'));$$('#rail li,.chips a').forEach(x=>x.classList.remove('live','done'));
+  if(!day){now.hidden=true;$('#dayFill').style.width='0';return}
+  const S=toMin('09:00'),E=toMin('16:00');$('#dayFill').style.width=Math.max(0,Math.min(1,(min-S)/(E-S)))*100+'%';
+  blocks.forEach((b,i)=>{if(min>=b.e){$(`#rail li[data-b=${b.id}]`).classList.add('done')}});
+  const b=blocks.find(b=>min>=b.s&&min<b.e);const br=BREAKS.find(x=>min>=x[0]&&min<x[1]);now.hidden=false;
+  if(b){b.el.classList.add('live');$(`#rail li[data-b=${b.id}]`).classList.add('live');$(`.chips a[href="#${b.id}"]`).classList.add('live');
+    const it=[...b.items].reverse().find(i=>i.t<=min)||b.items[0];if(it){it.el.classList.add('live');target=it.el}
+    const nx=b.items.find(i=>i.t>min);$('#nowTitle').textContent='現在：'+b.name+(it?'｜'+it.name:'');$('#nowSub').textContent=nx?('下一步 '+nx.el.dataset.t+'　'+nx.name):('這段 '+b.el.dataset.end+' 結束');}
+  else if(br){$('#nowTitle').textContent=br[2];$('#nowSub').textContent=br[3];target=$('#'+br[4])}
+  else if(min<S){$('#nowTitle').textContent='今天 09:00 開始';$('#nowSub').textContent='先加入投票，看一下委託信';target=$('#b1')}
+  else{$('#nowTitle').textContent='今天的課程結束了';$('#nowSub').textContent='行動卡記得下載帶走；這個頁面之後都還在';target=$('#b6')}
+  tick.target=target;}
+function goNow(e){e.preventDefault();(tick.target||$('#b1')).scrollIntoView({behavior:'smooth',block:'center'})}
+$('#nowGo').addEventListener('click',goNow);$('#dockNow').addEventListener('click',goNow);
+tick();setInterval(tick,30000);
+
+/* ---- scroll spy ---- */
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;$$('#rail li').forEach(l=>l.classList.toggle('on',l.dataset.b===id));$$('.chips a').forEach(a=>{const on=a.getAttribute('href')==='#'+id;a.classList.toggle('on',on);if(on){const c=a.parentElement;c.scrollTo({left:a.offsetLeft-c.clientWidth/2+a.clientWidth/2,behavior:'smooth'})}})}})},{rootMargin:'-40% 0px -55% 0px'});
+blocks.forEach(b=>io.observe(b.el));
+})();
 </script>
 </body>
 </html>
